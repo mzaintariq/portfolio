@@ -78,8 +78,23 @@ body {
   list-style: none;
 }
 
+.theme-toggle {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.theme-toggle:disabled {
+  cursor: default;
+}
+
 .nav-list a:focus-visible,
 .nav-list a:hover,
+.nav-list .theme-toggle:focus-visible,
+.nav-list .theme-toggle:hover,
 .brand:focus-visible,
 .brand:hover {
   color: var(--foreground);
@@ -155,8 +170,20 @@ body {
     text-decoration: none;
   }
 
+  .mobile-nav-list .theme-toggle {
+    display: flex;
+    width: 100%;
+    min-height: 3.25rem;
+    align-items: center;
+    color: var(--foreground);
+    font-size: 1rem;
+    text-align: left;
+  }
+
   .mobile-nav-list a:hover,
-  .mobile-nav-list a:focus-visible {
+  .mobile-nav-list a:focus-visible,
+  .mobile-nav-list .theme-toggle:hover,
+  .mobile-nav-list .theme-toggle:focus-visible {
     text-decoration: underline;
     text-underline-offset: 0.3em;
   }

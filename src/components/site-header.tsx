@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRef, useState, type KeyboardEvent } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6";
 import { profile } from "@/content/profile";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navigation = [
   { label: "Work", href: "/work" },
@@ -27,6 +28,9 @@ function NavigationLinks({ onNavigate }: { onNavigate?: () => void }) {
         <a href="/resume.pdf" onClick={onNavigate}>
           Resume
         </a>
+      </li>
+      <li>
+        <ThemeToggle />
       </li>
     </>
   );
