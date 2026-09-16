@@ -1,3 +1,5 @@
+import { profile } from "@/content/profile";
+
 const navigation = [
   { label: "Work", href: "#work" },
   { label: "Experience", href: "#experience" },
@@ -20,9 +22,9 @@ export default function Home() {
     <>
       <header className="site-header">
         <div className="container header-inner">
-          <a className="brand" href="#top" aria-label="Zain Tariq, home">
-            <span className="brand-full">Muhammad Zain Tariq</span>
-            <span className="brand-short">Zain Tariq</span>
+          <a className="brand" href="#top" aria-label={`${profile.displayName}, home`}>
+            <span className="brand-full">{profile.fullName}</span>
+            <span className="brand-short">{profile.displayName}</span>
           </a>
 
           <nav aria-label="Primary navigation">
@@ -40,11 +42,9 @@ export default function Home() {
       <main id="top">
         <section className="hero" aria-labelledby="hero-title">
           <div className="container">
-            <p className="eyebrow">Frontend-focused senior software engineer</p>
-            <h1 id="hero-title">Muhammad Zain Tariq</h1>
-            <p className="hero-introduction">
-              A portfolio of selected work, experience, and experiments.
-            </p>
+            <p className="eyebrow">{profile.headline}</p>
+            <h1 id="hero-title">{profile.fullName}</h1>
+            <p className="hero-introduction">{profile.introduction}</p>
           </div>
         </section>
 
