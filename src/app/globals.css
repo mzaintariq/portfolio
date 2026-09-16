@@ -25,6 +25,7 @@ body {
 }
 
 .site-header {
+  position: relative;
   border-bottom: 1px solid var(--border);
 }
 
@@ -68,16 +69,78 @@ body {
   text-underline-offset: 0.3em;
 }
 
+.menu-toggle,
+.mobile-nav {
+  display: none;
+}
+
 @media (max-width: 44rem) {
   .header-inner {
-    align-items: flex-start;
-    flex-direction: column;
+    min-height: 4.5rem;
     gap: 1rem;
-    padding-block: 1.25rem;
+    padding-block: 0.75rem;
   }
 
-  .nav-list {
-    justify-content: flex-start;
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    width: 2.75rem;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    background: transparent;
+    color: var(--foreground);
+    cursor: pointer;
+  }
+
+  .menu-toggle:hover {
+    border-color: var(--foreground);
+  }
+
+  .menu-toggle:focus-visible {
+    outline: 2px solid var(--foreground);
+    outline-offset: 2px;
+  }
+
+  .mobile-nav:not([hidden]) {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    right: 0;
+    left: 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--background);
+  }
+
+  .mobile-nav-list {
+    margin: 0 auto;
+    padding-block: 0.75rem 1.25rem;
+    list-style: none;
+  }
+
+  .mobile-nav-list li + li {
+    border-top: 1px solid var(--border);
+  }
+
+  .mobile-nav-list a {
+    display: flex;
+    min-height: 3.25rem;
+    align-items: center;
+    color: var(--foreground);
+    font-size: 1rem;
+    text-decoration: none;
+  }
+
+  .mobile-nav-list a:hover,
+  .mobile-nav-list a:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
   }
 
   .brand-full {
