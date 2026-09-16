@@ -24,11 +24,6 @@ body {
   line-height: 1.5;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
 .container {
   width: min(100% - 2rem, 72rem);
   margin-inline: auto;
@@ -78,15 +73,6 @@ a {
   text-underline-offset: 0.3em;
 }
 
-.hero {
-  display: flex;
-  align-items: center;
-  min-height: 32rem;
-  padding-block: 6rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.eyebrow,
 .section-label {
   margin: 0 0 1rem;
   color: var(--muted);
@@ -96,7 +82,6 @@ a {
   text-transform: uppercase;
 }
 
-h1,
 h2 {
   margin: 0;
   font-weight: 600;
@@ -104,20 +89,8 @@ h2 {
   line-height: 1.05;
 }
 
-h1 {
-  max-width: 12ch;
-  font-size: clamp(3rem, 8vw, 6.5rem);
-}
-
 h2 {
   font-size: clamp(2rem, 4vw, 3.5rem);
-}
-
-.hero-introduction {
-  max-width: 38rem;
-  margin: 1.5rem 0 0;
-  color: var(--muted);
-  font-size: clamp(1rem, 2vw, 1.25rem);
 }
 
 .sections {
@@ -148,11 +121,6 @@ h2 {
 
   .brand-short {
     display: inline;
-  }
-
-  .hero {
-    min-height: 26rem;
-    padding-block: 4.5rem;
   }
 
   .placeholder-section {

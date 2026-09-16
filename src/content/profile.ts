@@ -15,9 +15,9 @@ export const profile: Profile = {
   fullName: "Muhammad Zain Tariq",
   displayName: "Zain Tariq",
   headline:
-    "Senior frontend and product engineer translating complex workflows into intuitive web experiences",
+    "Senior frontend engineer building scalable interfaces for complex enterprise systems",
   introduction:
-    "I build complex interfaces and products with React, TypeScript, and Next.js. I bring frontend architecture and product thinking together to make sophisticated experiences clear and usable.",
+    "I build React, TypeScript, and Next.js applications across enterprise commerce platforms, admin systems, CMS/editor experiences, and developer tools. I pair frontend architecture with product thinking to make sophisticated systems clear to use and practical to evolve.",
   location: "Pearland, Texas",
   email: "mzaintariq@gmail.com",
   githubUrl: "https://github.com/mzaintariq",

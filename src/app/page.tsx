@@ -1,3 +1,4 @@
+import { Hero } from "@/components/hero";
 import { profile } from "@/content/profile";
 
 const navigation = [
@@ -40,13 +41,11 @@ export default function Home() {
       </header>
 
       <main id="top">
-        <section className="hero" aria-labelledby="hero-title">
-          <div className="container">
-            <p className="eyebrow">{profile.headline}</p>
-            <h1 id="hero-title">{profile.fullName}</h1>
-            <p className="hero-introduction">{profile.introduction}</p>
-          </div>
-        </section>
+        <Hero
+          profile={profile}
+          currentRole="Senior Software Engineer"
+          currentCompany="Arbisoft"
+        />
 
         <div className="container sections">
           {sections.map((section) => (
