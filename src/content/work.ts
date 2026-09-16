@@ -77,7 +77,7 @@ export const workItems: WorkItem[] = [
     summary:
       "Developed modern Next.js commerce storefront experiences with search, localization, and reusable frontend integrations.",
     category: "Professional Work",
-    role: "Frontend Engineer",
+    role: "Senior Frontend Engineer",
     timeframe: "2022 - Present",
     technologies: [
       "Next.js",
@@ -97,11 +97,11 @@ export const workItems: WorkItem[] = [
     title: "Elastic Path Studio Visual Editor",
     slug: "elastic-path-studio-visual-editor",
     company: "Arbisoft",
-    client: "Elastic Path",
+    client: "Elastic Path • Unstack",
     summary:
       "Built frontend tooling for visual commerce editing experiences, enabling flexible content customization and responsive design workflows.",
     category: "Professional Work",
-    role: "Frontend Engineer",
+    role: "Senior Frontend Engineer",
     timeframe: "2021 - 2024",
     technologies: [
       "React",
