@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: light;
+
   /* Colors */
   --background: #fafafa;
   --foreground: #181818;
   --muted: #686868;
   --border: #dedede;
+  --action-hover: #404040;
+  --list-marker: #a3a3a3;
 
   /* Typography */
   --font-body: Arial, Helvetica, sans-serif;
@@ -23,6 +27,17 @@
   /* Controls */
   --control-radius: 0.25rem;
   --touch-target-size: 2.75rem;
+}
+
+:root.dark {
+  color-scheme: dark;
+
+  --background: #141619;
+  --foreground: #f0f0ed;
+  --muted: #abb0b5;
+  --border: #34393e;
+  --action-hover: #d8d9d6;
+  --list-marker: #858b91;
 }
 
 * {

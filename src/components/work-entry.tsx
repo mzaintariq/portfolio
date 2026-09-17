@@ -45,7 +45,7 @@ export function WorkEntry({ item, index }: WorkEntryProps) {
         {item.highlights.length > 0 && (
           <div className="mt-8">
             <h3 className="sr-only">Highlights</h3>
-            <ul className="max-w-2xl list-disc space-y-2 pl-5 text-sm leading-relaxed marker:text-neutral-400 sm:text-base">
+            <ul className="max-w-2xl list-disc space-y-2 pl-5 text-sm leading-relaxed marker:text-[var(--list-marker)] sm:text-base">
               {item.highlights.map((highlight) => (
                 <li key={highlight}>{highlight}</li>
               ))}

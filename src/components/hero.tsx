@@ -48,7 +48,7 @@ export function Hero({ profile, currentRole, currentCompany }: HeroProps) {
 
           <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
             <a
-              className="inline-flex min-h-11 items-center justify-center gap-3 rounded-sm bg-[var(--foreground)] px-5 text-sm font-medium text-[var(--background)] hover:bg-neutral-700 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--foreground)]"
+              className="inline-flex min-h-11 items-center justify-center gap-3 rounded-sm bg-[var(--foreground)] px-5 text-sm font-medium text-[var(--background)] hover:bg-[var(--action-hover)] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[var(--foreground)]"
               href="/resume.pdf"
             >
               View Resume <span aria-hidden="true">↗</span>
