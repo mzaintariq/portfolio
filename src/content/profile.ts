@@ -4,6 +4,7 @@ export type Profile = {
   headline: string;
   introduction: string;
   location: string | null;
+  workAuthorization: string | null;
   email: string | null;
   githubUrl: string | null;
   linkedinUrl: string | null;
@@ -19,6 +20,7 @@ export const profile: Profile = {
   introduction:
     "I build React, TypeScript, and Next.js applications across enterprise commerce platforms, admin systems, CMS/editor experiences, and developer tools. I pair frontend architecture with product thinking to make sophisticated systems clear to use and practical to evolve.",
   location: "Pearland, Texas",
+  workAuthorization: "U.S. Citizen · Authorized to work in the U.S. without sponsorship",
   email: "mzaintariq@gmail.com",
   githubUrl: "https://github.com/mzaintariq",
   linkedinUrl: "https://linkedin.com/in/mzaintariq",

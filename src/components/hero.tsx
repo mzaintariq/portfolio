@@ -35,16 +35,23 @@ export function Hero({ profile, currentRole, currentCompany }: HeroProps) {
         </div>
 
         <div className="grid gap-8 border-t border-[var(--border)] pt-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-10">
-          <p className="max-w-xl self-center text-base leading-snug text-[var(--muted)]">
-            Currently{" "}
-            <span className="font-semibold text-[var(--foreground)]">
-              {currentRole}
-            </span>{" "}
-            at{" "}
-            <span className="font-semibold text-[var(--foreground)]">
-              {currentCompany}
-            </span>.
-          </p>
+          <div className="max-w-xl self-center">
+            <p className="text-base leading-snug text-[var(--muted)]">
+              Currently{" "}
+              <span className="font-semibold text-[var(--foreground)]">
+                {currentRole}
+              </span>{" "}
+              at{" "}
+              <span className="font-semibold text-[var(--foreground)]">
+                {currentCompany}
+              </span>.
+            </p>
+            {profile.location && (
+              <p className="mt-2 text-sm text-[var(--muted)]">
+                Based in {profile.location}
+              </p>
+            )}
+          </div>
 
           <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
             <a
