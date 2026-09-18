@@ -10,8 +10,8 @@ const navigation = [
   { label: "Work", href: "/work" },
   { label: "Experience", href: "/experience" },
   { label: "Projects", href: "/projects" },
-  { label: "Activity", href: "/activity" },
   { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 function NavigationLinks({ onNavigate }: { onNavigate?: () => void }) {
