@@ -25,7 +25,7 @@ export const homeContent: HomeContent = {
   featuredWork: {
     title: "Featured work",
     introduction: "A few examples of product-facing frontend work from my professional experience.",
-    linkLabel: "Explore all work",
+    linkLabel: "View all work",
     slugs: [
       "commerce-manager-product-editor",
       "elastic-path-studio-visual-editor",

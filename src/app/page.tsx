@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/hero";
 import { aboutContent } from "@/content/about";
@@ -7,174 +8,181 @@ import { projects } from "@/content/projects";
 import { workItems } from "@/content/work";
 
 export default function Home() {
-  const featuredWork = workItems.filter((item) =>
-    homeContent.featuredWork.slugs.includes(item.slug),
-  );
+  const featuredWork = homeContent.featuredWork.slugs.flatMap((slug) => {
+    const item = workItems.find((work) => work.slug === slug);
+    return item ? [item] : [];
+  });
   const featuredProjects = projects.filter((project) => project.featured);
+  const aboutSupportingCopy = aboutContent.sections
+    .find((section) => section.id === "how-i-work")
+    ?.entries.find((entry) => entry.heading === "User experience")?.text;
 
   return (
-    <main>
+    <main className="home-page">
       <Hero
         profile={profile}
         currentRole="Senior Software Engineer"
         currentCompany="Arbisoft"
       />
 
-      <section className="border-b border-[var(--border)]" aria-labelledby="home-work-title">
-        <div className="container py-14 sm:py-20">
-          <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
-            <div>
-              <h2
-                className="text-3xl leading-tight font-semibold tracking-[-0.04em] sm:text-4xl"
-                id="home-work-title"
-              >
-                {homeContent.featuredWork.title}
-              </h2>
-              <p className="mt-3 max-w-xl text-base leading-relaxed text-[var(--muted)]">
-                {homeContent.featuredWork.introduction}
-              </p>
-            </div>
-            <Link
-              className="inline-flex min-h-11 items-center gap-2 font-medium hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]"
-              href="/work"
-            >
+      <section className="home-work" aria-labelledby="home-work-title">
+        <div className="container home-work-layout">
+          <header className="home-section-intro">
+            <p className="type-metadata home-section-label">01 / Selected work</p>
+            <h2 className="type-section-title" id="home-work-title">
+              {homeContent.featuredWork.title}
+            </h2>
+            <p className="type-body home-section-description">
+              {homeContent.featuredWork.introduction}
+            </p>
+            <Link className="action-link" href="/work">
               {homeContent.featuredWork.linkLabel} <span aria-hidden="true">→</span>
             </Link>
-          </div>
+          </header>
 
-          <ol className="mt-10 grid gap-x-12 md:grid-cols-2">
+          <ol className="home-work-stories">
             {featuredWork.map((item) => (
-              <li className="border-t border-[var(--border)] py-7" key={item.slug}>
-                {(item.company || item.client) && (
-                  <p className="text-sm text-[var(--muted)]">
-                    {item.company}
-                    {item.client && (
-                      <span>
-                        {item.company ? " · Client: " : "Client: "}
-                        {item.client}
-                      </span>
-                    )}
-                  </p>
-                )}
-                <h3 className="mt-3 text-xl leading-snug font-semibold tracking-[-0.03em] sm:text-2xl">
-                  {item.title}
-                </h3>
-                <p className="mt-3 max-w-xl text-base leading-relaxed text-[var(--muted)]">
-                  {item.summary}
-                </p>
+              <li key={item.slug}>
+                <article aria-labelledby={`home-work-${item.slug}`}>
+                  {(item.company || item.client) && (
+                    <p className="type-metadata home-work-context">
+                      {item.company}
+                      {item.client && (
+                        <span>
+                          {item.company ? " · Client: " : "Client: "}
+                          {item.client}
+                        </span>
+                      )}
+                    </p>
+                  )}
+                  <h3 className="type-work-title" id={`home-work-${item.slug}`}>
+                    {item.title}
+                  </h3>
+                  <p className="type-body home-work-summary">{item.summary}</p>
+                  <Link className="action-link" href={`/work#work-${item.slug}`}>
+                    Read work overview
+                    <span className="sr-only">: {item.title}</span>
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </article>
               </li>
             ))}
           </ol>
         </div>
       </section>
 
-      <section className="border-b border-[var(--border)]" aria-labelledby="home-projects-title">
-        <div className="container py-14 sm:py-20">
-          <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:items-end">
-            <div>
-              <h2
-                className="text-3xl leading-tight font-semibold tracking-[-0.04em] sm:text-4xl"
-                id="home-projects-title"
-              >
+      <section className="home-projects" aria-labelledby="home-projects-title">
+        <div className="container">
+          <header className="home-projects-heading">
+            <div className="home-section-intro">
+              <p className="type-metadata home-section-label">02 / Projects</p>
+              <h2 className="type-section-title" id="home-projects-title">
                 {homeContent.featuredProjects.title}
               </h2>
-              <p className="mt-3 max-w-xl text-base leading-relaxed text-[var(--muted)]">
+              <p className="type-body home-section-description">
                 {homeContent.featuredProjects.introduction}
               </p>
             </div>
-            <Link
-              className="inline-flex min-h-11 items-center gap-2 font-medium hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]"
-              href="/projects"
-            >
+            <Link className="action-link" href="/projects">
               {homeContent.featuredProjects.linkLabel} <span aria-hidden="true">→</span>
             </Link>
-          </div>
+          </header>
 
-          <ul className="mt-10 grid gap-x-12 md:grid-cols-2">
+          <ul className="home-project-list">
             {featuredProjects.map((project) => (
-              <li className="border-t border-[var(--border)] py-7" key={project.slug}>
-                <h3 className="text-xl leading-snug font-semibold tracking-[-0.03em] sm:text-2xl">
-                  {project.title}
-                </h3>
-                <p className="mt-3 max-w-xl text-base leading-relaxed text-[var(--muted)]">
-                  {project.description}
-                </p>
-                <ul aria-label="Technologies" className="mt-5 flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 4).map((technology) => (
-                    <li
-                      className="rounded-full border border-[var(--border)] px-3 py-1 text-xs text-[var(--muted)]"
-                      key={technology}
+              <li key={project.slug}>
+                <article className="home-project" aria-labelledby={`home-project-${project.slug}`}>
+                  {project.image && (
+                    <Link
+                      className="home-project-image"
+                      href={`/projects/${project.slug}`}
+                      aria-label={`Explore ${project.title}`}
                     >
-                      {technology}
-                    </li>
-                  ))}
-                </ul>
-                {project.links.length > 0 && (
-                  <div className="mt-5 flex flex-wrap gap-x-6 gap-y-1">
-                    {project.links.map((link) => {
-                      const isExternal = /^https?:\/\//.test(link.url);
+                      <Image
+                        src={project.image.src}
+                        alt={project.image.alt}
+                        fill
+                        sizes="(min-width: 1200px) 544px, (min-width: 768px) 45vw, calc(100vw - 32px)"
+                      />
+                    </Link>
+                  )}
+                  <h3 className="type-work-title home-project-title" id={`home-project-${project.slug}`}>
+                    <Link href={`/projects/${project.slug}`}>{project.title}</Link>
+                  </h3>
+                  <p className="type-metadata home-project-technologies">
+                    <span className="sr-only">Technologies: </span>
+                    {project.technologies.slice(0, 4).join(" · ")}
+                  </p>
+                  <p className="type-body home-project-description">{project.description}</p>
+                  <Link className="action-link home-project-detail-link" href={`/projects/${project.slug}`}>
+                    Explore project
+                    <span className="sr-only">: {project.title}</span>
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                  {project.links.length > 0 && (
+                    <div className="home-project-external-links">
+                      {project.links.map((link) => {
+                        const isExternal = /^https?:\/\//.test(link.url);
 
-                      return (
-                        <a
-                          className="inline-flex min-h-11 items-center gap-2 text-sm font-medium hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]"
-                          href={link.url}
-                          key={`${link.label}-${link.url}`}
-                          target={isExternal ? "_blank" : undefined}
-                          rel={isExternal ? "noopener noreferrer" : undefined}
-                        >
-                          {link.label} <span aria-hidden="true">↗</span>
-                          {isExternal && (
-                            <span className="sr-only">(opens in a new tab)</span>
-                          )}
-                        </a>
-                      );
-                    })}
-                  </div>
-                )}
+                        return (
+                          <a
+                            className="action-link"
+                            href={link.url}
+                            key={`${link.label}-${link.url}`}
+                            target={isExternal ? "_blank" : undefined}
+                            rel={isExternal ? "noopener noreferrer" : undefined}
+                          >
+                            {link.label}
+                            <span aria-hidden="true">{isExternal ? "↗" : "→"}</span>
+                            {isExternal && <span className="sr-only">(opens in a new tab)</span>}
+                          </a>
+                        );
+                      })}
+                    </div>
+                  )}
+                </article>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="border-b border-[var(--border)]" aria-labelledby="home-about-title">
-        <div className="container grid gap-6 py-14 sm:py-20 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:gap-12">
-          <h2
-            className="text-3xl leading-tight font-semibold tracking-[-0.04em] sm:text-4xl"
-            id="home-about-title"
-          >
-            {homeContent.about.title}
-          </h2>
-          <div>
-            <p className="max-w-2xl text-lg leading-relaxed text-[var(--muted)] sm:text-xl">
-              {aboutContent.introduction}
-            </p>
-            <Link
-              className="mt-5 inline-flex min-h-11 items-center gap-2 font-medium hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]"
-              href="/about"
-            >
+      <section className="home-about" aria-labelledby="home-about-title">
+        <div className="container home-about-layout">
+          <header className="home-section-intro">
+            <p className="type-metadata home-section-label">03 / About</p>
+            <h2 className="type-work-title" id="home-about-title">
+              {homeContent.about.title}
+            </h2>
+          </header>
+          <div className="home-about-copy">
+            <p className="type-section-title home-about-statement">{aboutContent.introduction}</p>
+            {aboutSupportingCopy && <p className="type-body home-about-support">{aboutSupportingCopy}</p>}
+            <Link className="action-link" href="/about">
               {homeContent.about.linkLabel} <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
       </section>
 
-      <section aria-labelledby="home-contact-title">
-        <div className="container grid gap-6 py-14 sm:py-20 md:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] md:gap-12">
-          <h2
-            className="text-3xl leading-tight font-semibold tracking-[-0.04em] sm:text-4xl"
-            id="home-contact-title"
-          >
-            {homeContent.contact.title}
-          </h2>
-          <div>
-            <p className="max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+      <section className="home-contact" aria-labelledby="home-contact-title">
+        <div className="container home-contact-layout">
+          <header className="home-section-intro">
+            <p className="type-metadata home-section-label">04 / Contact</p>
+            <h2 className="type-page-title home-contact-title" id="home-contact-title">
+              {homeContent.contact.title}
+            </h2>
+            <p className="type-body home-section-description">
               {homeContent.contact.introduction}
             </p>
-            <Link
-              className="mt-5 inline-flex min-h-11 items-center gap-2 font-medium hover:underline hover:underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]"
-              href="/contact"
-            >
+          </header>
+          <div className="home-contact-actions">
+            {profile.email && (
+              <a className="action-link home-contact-email" href={`mailto:${profile.email}`}>
+                {profile.email}
+              </a>
+            )}
+            <Link className="action-link" href="/contact">
               {homeContent.contact.linkLabel} <span aria-hidden="true">→</span>
             </Link>
           </div>

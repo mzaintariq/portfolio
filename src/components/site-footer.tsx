@@ -2,7 +2,7 @@ import { profile } from "@/content/profile";
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-[var(--border)]">
+    <footer className="site-footer border-t border-[var(--border)]">
       <div className="container flex flex-col gap-2 py-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:py-6">
         <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
           <p className="text-base font-semibold tracking-[-0.02em]">
