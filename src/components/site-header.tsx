@@ -53,11 +53,10 @@ export function SiteHeader() {
         <Link
           className="brand"
           href="/"
-          aria-label={`${profile.displayName}, home`}
+          aria-label={`${profile.fullName}, home`}
           onClick={() => setIsMenuOpen(false)}
         >
-          <span className="brand-full">{profile.fullName}</span>
-          <span className="brand-short">{profile.displayName}</span>
+          {profile.displayName}
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
