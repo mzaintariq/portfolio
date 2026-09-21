@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Project } from "@/content/projects";
 
 type ProjectCardProps = {
@@ -36,7 +37,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </p>
         )}
         <h2 className="text-2xl leading-tight font-semibold tracking-[-0.04em] sm:text-3xl">
-          {project.title}
+          <Link
+            className="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--foreground)]"
+            href={`/projects/${project.slug}`}
+          >
+            {project.title}
+          </Link>
         </h2>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-[var(--muted)]">
           {project.description}
