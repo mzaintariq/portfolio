@@ -489,7 +489,7 @@ body {
 
 .hero-portrait-image {
   object-fit: cover;
-  object-position: 52% 35%;
+  object-position: 52% 5%;
 }
 
 @media (min-width: 64rem) {
