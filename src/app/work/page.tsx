@@ -6,27 +6,27 @@ export const metadata: Metadata = { title: "Work" };
 
 export default function WorkPage() {
   return (
-    <main className="container pb-20 sm:pb-28">
-      <header className="grid gap-6 py-16 sm:py-24 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.9fr)] lg:items-end lg:gap-16">
-        <h1 className="text-[clamp(3rem,7vw,5.5rem)] leading-[1.02] font-semibold tracking-[-0.06em]">
+    <main className="inner-page work-page">
+      <header className="container inner-page-header">
+        <h1 className="type-page-title inner-page-title">
           Professional Work
         </h1>
-        <p className="max-w-xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
+        <p className="type-body inner-page-introduction">
           Selected professional experience building frontend products, with a
           focus on my role and publicly shareable contributions.
         </p>
       </header>
 
       {workItems.length > 0 ? (
-        <ol>
+        <ol className="work-story-list">
           {workItems.map((item, index) => (
-            <li key={item.slug}>
+            <li className="work-story-band" key={item.slug}>
               <WorkEntry item={item} index={index} />
             </li>
           ))}
         </ol>
       ) : (
-        <p className="border-t border-[var(--border)] pt-8 text-[var(--muted)]">
+        <p className="container type-body inner-empty">
           Selected work will be added here.
         </p>
       )}
