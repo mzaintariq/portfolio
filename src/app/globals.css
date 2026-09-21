@@ -3,25 +3,58 @@
 :root {
   color-scheme: light;
 
-  /* Colors */
-  --background: #fafafa;
-  --foreground: #181818;
-  --muted: #686868;
-  --border: #dedede;
-  --action-hover: #404040;
-  --list-marker: #a3a3a3;
+  /* Semantic colors; existing components keep using these shared roles. */
+  --background: #f4f1eb;
+  --surface: #eae5dd;
+  --foreground: #242723;
+  --muted: #62675e;
+  --border: #d8d2c8;
+  --accent: #4e6548;
+  --on-accent: #f4f1eb;
+  --action-hover: var(--accent);
+  --list-marker: var(--muted);
+  --focus-ring: var(--accent);
 
-  /* Typography */
-  --font-body: Arial, Helvetica, sans-serif;
-  --line-height-body: 1.5;
+  /* Font variables are supplied on the root element by next/font/local. */
+  --font-display: var(--font-manrope), system-ui, sans-serif;
+  --font-body: var(--font-dm-sans), system-ui, sans-serif;
+  --font-navigation: var(--font-body);
+  --text-display: clamp(3.75rem, 8vw, 9rem);
+  --text-page-title: clamp(2.5rem, 6vw, 5.5rem);
+  --text-section-title: clamp(1.75rem, 4vw, 3.25rem);
+  --text-work-title: clamp(1.4375rem, 2.5vw, 2.125rem);
+  --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-metadata: 0.8125rem;
+  --text-navigation: 0.875rem;
+  --line-height-display: 1.02;
+  --line-height-heading: 1.15;
+  --line-height-body: 1.6;
+  --line-height-label: 1.5;
+  --tracking-display: -0.04em;
+  --tracking-heading: -0.025em;
+  --tracking-body: normal;
 
-  /* Spacing and layout */
+  /* Four-pixel spacing scale, with larger steps for editorial sections. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
   --space-5: 1.25rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-28: 7rem;
+  --space-32: 8rem;
+  --section-space: clamp(var(--space-14), 8vw, var(--space-32));
+  --content-gap: clamp(var(--space-6), 4vw, var(--space-12));
+  --prose-max-width: 65ch;
   --content-max-width: 72rem;
+  /* Total horizontal gutter; preserve the existing container geometry. */
   --page-gutter: var(--space-8);
 
   /* Controls */
@@ -32,12 +65,154 @@
 :root.dark {
   color-scheme: dark;
 
-  --background: #141619;
-  --foreground: #f0f0ed;
-  --muted: #abb0b5;
-  --border: #34393e;
-  --action-hover: #d8d9d6;
-  --list-marker: #858b91;
+  --background: #1b1e1b;
+  --surface: #252a25;
+  --foreground: #f1eee7;
+  --muted: #b1b8ac;
+  --border: #3b443a;
+  --accent: #b4c6a5;
+  --on-accent: #1b1e1b;
+}
+
+@layer base {
+  /* Change heading family without replacing component sizes or hierarchy. */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+}
+
+@layer components {
+  /* Opt-in roles for subsequent component phases. Utilities can override them. */
+  .type-display,
+  .type-page-title,
+  .type-section-title,
+  .type-work-title {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: var(--line-height-heading);
+    letter-spacing: var(--tracking-heading);
+  }
+
+  .type-display {
+    font-size: var(--text-display);
+    line-height: var(--line-height-display);
+    letter-spacing: var(--tracking-display);
+  }
+
+  .type-page-title {
+    font-size: var(--text-page-title);
+    line-height: var(--line-height-display);
+  }
+
+  .type-section-title {
+    font-size: var(--text-section-title);
+  }
+
+  .type-work-title {
+    font-size: var(--text-work-title);
+  }
+
+  .type-body {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 400;
+    line-height: var(--line-height-body);
+    letter-spacing: var(--tracking-body);
+  }
+
+  .type-metadata,
+  .type-navigation {
+    font-family: var(--font-body);
+    font-weight: 500;
+    line-height: var(--line-height-label);
+    letter-spacing: var(--tracking-body);
+  }
+
+  .type-metadata {
+    color: var(--muted);
+    font-size: var(--text-metadata);
+  }
+
+  .type-navigation {
+    font-family: var(--font-navigation);
+    font-size: var(--text-navigation);
+  }
+
+  .section-space {
+    padding-block: var(--section-space);
+  }
+
+  /* Standalone links only: one line spans label, flex gap, and arrow.
+     Always visible for touch users; no motion or hover-only affordance.
+     Adopt this class in later phases instead of text-decoration utilities. */
+  .action-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    width: fit-content;
+    max-width: 100%;
+    min-height: var(--touch-target-size);
+    padding-block: var(--space-2);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    font-weight: 500;
+    line-height: var(--line-height-label);
+    text-decoration: none;
+  }
+
+  .action-link::after {
+    position: absolute;
+    inset-inline: 0;
+    bottom: var(--space-1);
+    border-bottom: 1px solid currentColor;
+    content: "";
+    pointer-events: none;
+  }
+
+  .action-link > [aria-hidden="true"] {
+    flex-shrink: 0;
+  }
+
+  .action-link:focus-visible,
+  .action-link:active {
+    color: var(--accent);
+  }
+
+  .action-link:focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+  }
+
+  .action-link:focus-visible::after,
+  .action-link:active::after {
+    border-bottom-width: 2px;
+  }
+
+  @media (hover: hover) {
+    .action-link:hover {
+      color: var(--accent);
+    }
+
+    .action-link:hover::after {
+      border-bottom-width: 2px;
+    }
+  }
 }
 
 * {
@@ -50,6 +225,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-body);
   line-height: var(--line-height-body);
+  letter-spacing: var(--tracking-body);
 }
 
 .container {
@@ -59,7 +235,6 @@ body {
 
 .site-header {
   position: relative;
-  border-bottom: 1px solid var(--border);
 }
 
 .header-inner {
@@ -89,7 +264,8 @@ body {
   margin: 0;
   padding: 0;
   color: var(--muted);
-  font-size: 0.875rem;
+  font-family: var(--font-navigation);
+  font-size: var(--text-navigation);
   list-style: none;
 }
 
