@@ -1115,6 +1115,82 @@ body:has(.home-page) .site-footer {
   margin-top: var(--space-10);
 }
 
+.creative-background {
+  padding-block: var(--inner-section-space);
+  background: var(--surface);
+}
+
+.creative-groups {
+  display: grid;
+  gap: var(--space-16);
+  margin-top: var(--space-16);
+}
+
+.creative-group,
+.creative-items {
+  display: grid;
+  align-items: start;
+  gap: var(--space-8);
+}
+
+.creative-items {
+  gap: var(--space-10) var(--space-8);
+}
+
+.creative-item {
+  min-width: 0;
+}
+
+.creative-item-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-wrap: pretty;
+}
+
+.creative-item-featured .creative-item-title {
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+.creative-item-description {
+  max-width: 46ch;
+  margin-top: var(--space-3);
+  color: var(--muted);
+}
+
+.creative-item-links {
+  margin-top: var(--space-3);
+  font-size: var(--text-navigation);
+}
+
+.creative-item-links .action-link:not(:hover):not(:focus-visible):not(:active) {
+  color: var(--muted);
+}
+
+.creative-portfolio-links {
+  margin-top: var(--space-16);
+}
+
+@media (min-width: 48rem) {
+  .creative-items {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 64rem) {
+  .creative-group {
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: var(--space-12);
+  }
+}
+
+@media (min-width: 80rem) {
+  .creative-items {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--space-10);
+  }
+}
+
 @media (min-width: 48rem) {
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

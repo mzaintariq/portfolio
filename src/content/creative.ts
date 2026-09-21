@@ -19,14 +19,22 @@ export type CreativeItem = {
   featured: boolean;
 };
 
-// Descriptions and featured selections remain unset until approved copy and
-// curation are available. Images can be added after assets enter the repository.
+export const creativeBackground = {
+  title: "Creative background",
+  paragraphs: [
+    "Before and during university, I worked across UX/UI, graphic design, branding, visual communication, and student-society creative work.",
+    "That background shapes how I approach engineering today: using visual hierarchy, interaction clarity, and product thinking to make complex interfaces easier to understand.",
+  ],
+};
+
+// Images will be added when approved assets are available.
 export const creativeItems: CreativeItem[] = [
   {
-    title: "DementiaCare",
+    title: "DementiaCare+",
     slug: "dementia-care",
     category: "UX/UI",
-    description: "",
+    description:
+      "A UX/UI concept focused on designing a supportive digital experience around dementia care.",
     image: null,
     links: [
       {
@@ -35,13 +43,14 @@ export const creativeItems: CreativeItem[] = [
         type: "behance",
       },
     ],
-    featured: false,
+    featured: true,
   },
   {
-    title: "Eye-Assisted Accessible Eye Testing Web App",
-    slug: "eye-assisted-accessible-eye-testing-web-app",
+    title: "Eye.Assisted",
+    slug: "eye-assisted",
     category: "UX/UI",
-    description: "",
+    description:
+      "An accessible eye-testing web application concept exploring assistive interaction and inclusive interface design.",
     image: null,
     links: [
       {
@@ -50,13 +59,14 @@ export const creativeItems: CreativeItem[] = [
         type: "behance",
       },
     ],
-    featured: false,
+    featured: true,
   },
   {
-    title: "LUMS EAT",
+    title: "LUMS Eat",
     slug: "lums-eat",
     category: "UX/UI",
-    description: "",
+    description:
+      "A UX/UI concept for simplifying campus food ordering at LUMS through a clearer digital ordering experience.",
     image: null,
     links: [
       {
@@ -65,13 +75,14 @@ export const creativeItems: CreativeItem[] = [
         type: "behance",
       },
     ],
-    featured: false,
+    featured: true,
   },
   {
     title: "FiLUMS 2018",
     slug: "filums-2018",
     category: "Visual Design",
-    description: "",
+    description:
+      "Branding and visual-design work created for FiLUMS 2018 across event and promotional materials.",
     image: null,
     links: [
       {
@@ -80,13 +91,14 @@ export const creativeItems: CreativeItem[] = [
         type: "behance",
       },
     ],
-    featured: false,
+    featured: true,
   },
   {
-    title: "LUMS Olympiad 2019 Event Branding & Visual Design",
-    slug: "lums-olympiad-2019-event-branding-visual-design",
+    title: "LUMS Olympiad 2019",
+    slug: "lums-olympiad-2019",
     category: "Visual Design",
-    description: "",
+    description:
+      "Event branding and visual design across social media, print, delegate materials, proposals, merchandise, awards, and event collateral.",
     image: null,
     links: [
       {
@@ -95,13 +107,14 @@ export const creativeItems: CreativeItem[] = [
         type: "behance",
       },
     ],
-    featured: false,
+    featured: true,
   },
   {
-    title: "Danger/Hazard — COVID-19 Awareness Poster Design",
-    slug: "danger-hazard-covid-19-awareness-poster-design",
+    title: "Danger/Hazard",
+    slug: "danger-hazard",
     category: "Visual Design",
-    description: "",
+    description:
+      "A COVID-19 awareness poster that won a university design competition.",
     image: null,
     links: [
       {
@@ -110,13 +123,14 @@ export const creativeItems: CreativeItem[] = [
         type: "behance",
       },
     ],
-    featured: false,
+    featured: true,
   },
   {
     title: "Animals",
     slug: "animals",
     category: "Personal Work",
-    description: "",
+    description:
+      "A personal visual-design exploration centered on animal-themed artwork.",
     image: null,
     links: [
       {
@@ -131,7 +145,8 @@ export const creativeItems: CreativeItem[] = [
     title: "Heroes (MCU)",
     slug: "heroes-mcu",
     category: "Personal Work",
-    description: "",
+    description:
+      "A personal visual series inspired by Marvel heroes.",
     image: null,
     links: [
       {
@@ -146,7 +161,8 @@ export const creativeItems: CreativeItem[] = [
     title: "Villains (MCU)",
     slug: "villains-mcu",
     category: "Personal Work",
-    description: "",
+    description:
+      "A personal visual series inspired by Marvel villains.",
     image: null,
     links: [
       {

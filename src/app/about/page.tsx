@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AboutSection } from "@/components/about-section";
+import { CreativeWork } from "@/components/creative-work";
 import { aboutContent } from "@/content/about";
 
 export const metadata: Metadata = { title: "About" };
@@ -14,6 +15,7 @@ export default function AboutPage() {
       {aboutContent.sections.map((section) => (
         <AboutSection key={section.id} section={section} />
       ))}
+      <CreativeWork />
     </main>
   );
 }
