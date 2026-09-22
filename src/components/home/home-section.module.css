@@ -1,0 +1,14 @@
+.homeSectionLabel {
+  margin-bottom: var(--space-5);
+  color: var(--accent);
+}
+
+.homeSectionDescription {
+  max-width: 44ch;
+  margin-top: var(--space-5);
+  color: var(--muted);
+}
+
+.homeSectionIntro > :global(.action-link) {
+  margin-top: var(--space-6);
+}

@@ -1,0 +1,83 @@
+.innerPage {
+  --inner-section-space: clamp(var(--space-14), 7vw, var(--space-24));
+  padding-bottom: var(--inner-section-space);
+}
+
+.innerPageHeader {
+  display: grid;
+  align-items: end;
+  gap: var(--space-6);
+  padding-block: clamp(var(--space-10), 5vw, var(--space-20)) var(--inner-section-space);
+}
+
+.innerPageTitle {
+  max-width: 14ch;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.innerPageIntroduction {
+  max-width: 46ch;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.innerLabel {
+  color: var(--accent);
+}
+
+.innerEmpty {
+  color: var(--muted);
+}
+
+.innerHighlights,
+.innerTechnologies {
+  margin-top: var(--space-8);
+}
+
+.innerHighlightList {
+  max-width: var(--prose-max-width);
+  padding-left: var(--space-5);
+  list-style: disc;
+  font-size: var(--text-body);
+  line-height: var(--line-height-body);
+}
+
+.innerHighlightList li + li {
+  margin-top: var(--space-3);
+}
+
+.innerHighlightList ::marker {
+  color: var(--accent);
+}
+
+.innerTechnologies {
+  max-width: var(--prose-max-width);
+  line-height: 1.8;
+}
+
+.innerActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.innerSecondaryActions {
+  margin-top: var(--space-3);
+  font-size: var(--text-navigation);
+}
+
+.innerSecondaryActions :global(.action-link):not(:hover):not(:focus-visible):not(:active) {
+  color: var(--muted);
+}
+
+@media (min-width: 64rem) {
+  .indexPageMasthead {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: var(--space-16);
+  }
+}

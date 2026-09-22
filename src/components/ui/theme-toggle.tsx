@@ -1,7 +1,8 @@
 "use client";
 
 import { FaMoon, FaSun } from "react-icons/fa6";
-import { useTheme } from "@/components/theme-provider";
+import { useTheme } from "@/components/ui/theme-provider";
+import styles from "./theme-toggle.module.css";
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
@@ -11,7 +12,7 @@ export function ThemeToggle() {
 
   return (
     <button
-      className="theme-toggle"
+      className={styles.themeToggle}
       type="button"
       aria-label={actionLabel}
       title={actionLabel}

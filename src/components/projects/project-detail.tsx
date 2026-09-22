@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/content/projects";
+import innerStyles from "@/components/layout/inner-page.module.css";
+import styles from "./project-detail.module.css";
 
 type ProjectDetailProps = {
   project: Project;
@@ -8,19 +10,19 @@ type ProjectDetailProps = {
 
 export function ProjectDetail({ project }: ProjectDetailProps) {
   return (
-    <main className="container inner-page project-detail-page">
-      <header className="project-detail-header">
-        <Link className="action-link project-back-link" href="/projects">
+    <main className={`container ${innerStyles.innerPage}`}>
+      <header className={styles.projectDetailHeader}>
+        <Link className={`action-link ${styles.projectBackLink}`} href="/projects">
           Back to Projects <span aria-hidden="true">→</span>
         </Link>
-        <div className="project-detail-intro">
-          <h1 className="type-page-title inner-page-title">{project.title}</h1>
-          <p className="type-body inner-page-introduction">{project.description}</p>
+        <div className={styles.projectDetailIntro}>
+          <h1 className={`type-page-title ${innerStyles.innerPageTitle}`}>{project.title}</h1>
+          <p className={`type-body ${innerStyles.innerPageIntroduction}`}>{project.description}</p>
         </div>
       </header>
 
       {project.image && (
-        <div className="project-detail-image">
+        <div className={styles.projectDetailImage}>
           <Image
             src={project.image.src}
             alt={project.image.alt}
@@ -32,25 +34,25 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
         </div>
       )}
 
-      <div className="project-detail-body">
-        <section className="project-overview" aria-labelledby="project-overview">
+      <div className={styles.projectDetailBody}>
+        <section className={styles.projectOverview} aria-labelledby="project-overview">
           <h2 className="type-work-title" id="project-overview">Overview</h2>
           <p className="type-body">{project.longDescription}</p>
         </section>
 
-        <div className="project-detail-facts">
+        <div className={styles.projectDetailFacts}>
           {project.technologies.length > 0 && (
             <section aria-labelledby="project-technologies">
-              <h2 className="type-metadata inner-label" id="project-technologies">Technologies</h2>
-              <ul className="project-technology-list">
+              <h2 className={`type-metadata ${innerStyles.innerLabel}`} id="project-technologies">Technologies</h2>
+              <ul className={styles.projectTechnologyList}>
                 {project.technologies.map((technology) => <li key={technology}>{technology}</li>)}
               </ul>
             </section>
           )}
           {project.links.length > 0 && (
             <section aria-labelledby="project-links">
-              <h2 className="type-metadata inner-label" id="project-links">Links</h2>
-              <ul className="inner-actions">
+              <h2 className={`type-metadata ${innerStyles.innerLabel}`} id="project-links">Links</h2>
+              <ul className={innerStyles.innerActions}>
                 {project.links.map((link) => {
                   const isExternal = /^https?:\/\//.test(link.url);
                   return (

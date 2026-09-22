@@ -1,0 +1,28 @@
+.aboutPage {
+  padding-bottom: 0;
+}
+
+.aboutPageHeader {
+  align-items: start;
+}
+
+.aboutPageStatement {
+  max-width: 27ch;
+  font-weight: 500;
+  text-wrap: pretty;
+}
+
+.creativeBackground {
+  padding-block: var(--inner-section-space);
+}
+
+.creativeBackground {
+  background: var(--surface);
+}
+
+@media (min-width: 64rem) {
+  .aboutPageHeader {
+    grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+    gap: var(--space-20);
+  }
+}

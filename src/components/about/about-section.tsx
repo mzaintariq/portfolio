@@ -1,4 +1,5 @@
 import type { AboutSection as AboutSectionContent } from "@/content/about";
+import styles from "./about-section.module.css";
 
 type AboutSectionProps = {
   section: AboutSectionContent;
@@ -8,15 +9,15 @@ export function AboutSection({ section }: AboutSectionProps) {
   return (
     <section
       aria-labelledby={`about-${section.id}`}
-      className={`about-page-section${section.id === "how-i-work" ? " about-principles" : ""}`}
+      className={`${styles.aboutPageSection}${section.id === "how-i-work" ? ` ${styles.aboutPrinciples}` : ""}`}
       id={section.id}
     >
-      <div className="container about-section-layout">
+      <div className={`container ${styles.aboutSectionLayout}`}>
         <h2 className="type-work-title" id={`about-${section.id}`}>{section.title}</h2>
-        <div className="about-section-entries">
+        <div className={styles.aboutSectionEntries}>
           {section.entries.map((entry) => (
             <div key={entry.heading ?? entry.text}>
-              {entry.heading && <h3 className="about-entry-heading">{entry.heading}</h3>}
+              {entry.heading && <h3 className={styles.aboutEntryHeading}>{entry.heading}</h3>}
               <p className="type-body">{entry.text}</p>
             </div>
           ))}

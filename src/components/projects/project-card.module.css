@@ -1,0 +1,60 @@
+@value innerTechnologies from "../layout/inner-page.module.css";
+
+.projectPreview,
+.projectPreviewCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  min-width: 0;
+  height: 100%;
+}
+
+.projectPreviewCopy {
+  flex: 1;
+}
+
+.projectPreviewTitle {
+  margin-top: var(--space-3);
+  color: var(--accent);
+  text-wrap: balance;
+}
+
+.projectPreviewTitle a {
+  display: inline-block;
+  min-height: var(--touch-target-size);
+}
+
+.projectPreviewTitle a:hover,
+.projectPreviewTitle a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.projectPreviewDescription {
+  max-width: 46ch;
+  margin-top: var(--space-5);
+  color: var(--muted);
+}
+
+.projectPreview .innerTechnologies {
+  margin-top: var(--space-5);
+}
+
+.projectPreviewActions {
+  margin-top: auto;
+  padding-top: var(--space-8);
+}
+
+.projectPreviewImage {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--surface);
+}
+
+.projectPreviewImage {
+  flex-shrink: 0;
+  margin-bottom: var(--space-6);
+}

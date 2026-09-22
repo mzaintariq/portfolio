@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { CreativeWork } from "@/components/creative-work";
-import { ProjectCard } from "@/components/project-card";
+import { CreativeWork } from "@/components/creative/creative-work";
+import { ProjectCard } from "@/components/projects/project-card";
 import { projects } from "@/content/projects";
+import innerStyles from "@/components/layout/inner-page.module.css";
+import styles from "./projects.module.css";
 
 export const metadata: Metadata = { title: "Projects" };
 
@@ -11,20 +13,20 @@ export default function ProjectsPage() {
   );
 
   return (
-    <main className="inner-page projects-page">
-      <header className="container inner-page-header index-page-masthead">
-        <h1 className="type-page-title inner-page-title">
+    <main className={`${innerStyles.innerPage} ${styles.projectsPage}`}>
+      <header className={`container ${innerStyles.innerPageHeader} ${innerStyles.indexPageMasthead}`}>
+        <h1 className={`type-page-title ${innerStyles.innerPageTitle}`}>
           Projects
         </h1>
-        <p className="type-body inner-page-introduction">
+        <p className={`type-body ${innerStyles.innerPageIntroduction}`}>
           Personal products, experiments, and demos built outside my
           professional work.
         </p>
       </header>
 
       {orderedProjects.length > 0 ? (
-        <div className="projects-collection">
-          <ul className="container project-grid">
+        <div className={styles.projectsCollection}>
+          <ul className={`container ${styles.projectGrid}`}>
             {orderedProjects.map((project) => (
               <li key={project.slug}>
                 <ProjectCard project={project} />
@@ -33,7 +35,7 @@ export default function ProjectsPage() {
           </ul>
         </div>
       ) : (
-        <p className="container type-body inner-empty">
+        <p className={`container type-body ${innerStyles.innerEmpty}`}>
           Projects will be added here.
         </p>
       )}

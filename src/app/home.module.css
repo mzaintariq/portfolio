@@ -1,0 +1,82 @@
+@value siteFooter from "../components/layout/site-footer.module.css";
+
+.homeAbout {
+  padding-block: clamp(var(--space-14), 8vw, var(--space-28));
+}
+
+.homeAboutLayout {
+  display: grid;
+  gap: var(--space-12);
+}
+
+.homeAbout {
+  background: var(--surface);
+}
+
+.homeAboutStatement {
+  max-width: 26ch;
+  font-weight: 500;
+  text-wrap: pretty;
+}
+
+.homeAboutSupport {
+  max-width: 48ch;
+  margin-top: var(--space-6);
+  color: var(--muted);
+}
+
+.homeAboutCopy > :global(.action-link) {
+  margin-top: var(--space-6);
+}
+
+.homeContact {
+  padding-block: clamp(var(--space-14), 8vw, var(--space-24)) var(--space-12);
+}
+
+.homeContactLayout {
+  display: grid;
+  gap: var(--space-8);
+  align-items: end;
+}
+
+.homeContactTitle {
+  text-wrap: balance;
+}
+
+.homeContactActions {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.homeContactEmail {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  overflow-wrap: anywhere;
+}
+
+/* Join the footer to the homepage closing section without route-dependent rendering. */
+body:has(.homePage) .siteFooter {
+  border-top: 0;
+}
+
+@media (min-width: 64rem) {
+  .homeAboutLayout {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: var(--space-24);
+  }
+
+  .homeAbout {
+    padding-block: var(--space-32);
+  }
+
+  .homeContactLayout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: var(--space-20);
+  }
+
+  .homeContactActions {
+    justify-self: end;
+  }
+}

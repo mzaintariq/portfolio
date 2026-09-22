@@ -1,0 +1,29 @@
+.experienceContent {
+  min-width: 0;
+}
+
+.experienceRecord {
+  display: grid;
+  gap: var(--space-6);
+  padding: clamp(var(--space-5), 4vw, var(--space-12));
+  background: var(--surface);
+}
+
+.experienceCompany {
+  margin-bottom: var(--space-3);
+  color: var(--muted);
+  font-size: var(--text-navigation);
+}
+
+.experienceSummary {
+  max-width: var(--prose-max-width);
+  margin-top: var(--space-5);
+  color: var(--muted);
+}
+
+@media (min-width: 64rem) {
+  .experienceRecord {
+    grid-template-columns: minmax(0, 0.55fr) minmax(0, 1.45fr);
+    gap: var(--space-12);
+  }
+}

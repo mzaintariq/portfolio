@@ -1,4 +1,6 @@
 import type { WorkItem } from "@/content/work";
+import innerStyles from "@/components/layout/inner-page.module.css";
+import styles from "./work-entry.module.css";
 
 type WorkEntryProps = {
   item: WorkItem;
@@ -7,13 +9,13 @@ type WorkEntryProps = {
 
 export function WorkEntry({ item, index }: WorkEntryProps) {
   return (
-    <article className="container work-story" aria-labelledby={`work-${item.slug}`}>
-      <div className="work-story-context">
-        <p className="type-metadata inner-label">
+    <article className={`container ${styles.workStory}`} aria-labelledby={`work-${item.slug}`}>
+      <div className={styles.workStoryContext}>
+        <p className={`type-metadata ${innerStyles.innerLabel}`}>
           {String(index + 1).padStart(2, "0")} / {item.category}
         </p>
         {(item.company || item.client) && (
-          <p className="work-story-company">
+          <p className={styles.workStoryCompany}>
             {item.company}
             {item.client && (
               <span>
@@ -27,30 +29,30 @@ export function WorkEntry({ item, index }: WorkEntryProps) {
         <p className="type-metadata">{item.timeframe}</p>
       </div>
 
-      <div className="work-story-content">
-        <h2 id={`work-${item.slug}`} className="type-section-title work-story-title">
+      <div className={styles.workStoryContent}>
+        <h2 id={`work-${item.slug}`} className={`type-section-title ${styles.workStoryTitle}`}>
           {item.title}
         </h2>
-        <p className="work-story-summary">{item.summary}</p>
+        <p className={styles.workStorySummary}>{item.summary}</p>
 
         {item.highlights.length > 0 && (
-          <div className="inner-highlights">
+          <div className={innerStyles.innerHighlights}>
             <h3 className="sr-only">Highlights</h3>
-            <ul className="inner-highlight-list">
+            <ul className={innerStyles.innerHighlightList}>
               {item.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
             </ul>
           </div>
         )}
 
         {item.technologies.length > 0 && (
-          <p className="type-metadata inner-technologies">
+          <p className={`type-metadata ${innerStyles.innerTechnologies}`}>
             <span className="sr-only">Technologies: </span>
             {item.technologies.join(" · ")}
           </p>
         )}
 
         {item.publicLinks && item.publicLinks.length > 0 && (
-          <div className="inner-actions work-story-links">
+          <div className={`${innerStyles.innerActions} ${styles.workStoryLinks}`}>
             {item.publicLinks.map((link) => (
               <a className="action-link" href={link.url} key={link.url}>
                 {link.label}

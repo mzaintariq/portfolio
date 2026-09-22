@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Profile } from "@/content/profile";
+import styles from "./hero.module.css";
 
 type HeroProps = {
   profile: Profile;
@@ -9,16 +10,16 @@ type HeroProps = {
 
 export function Hero({ profile, currentRole, currentCompany }: HeroProps) {
   return (
-    <section className="hero" aria-labelledby="hero-title">
-      <div className="container hero-layout">
-        <h1 id="hero-title" className="type-display hero-name">
+    <section className={styles.hero} aria-labelledby="hero-title">
+      <div className={`container ${styles.heroLayout}`}>
+        <h1 id="hero-title" className={`type-display ${styles.heroName}`}>
           {profile.fullName}
         </h1>
-        <div className="hero-copy">
-          <p className="hero-headline">{profile.headline}</p>
-          <p className="type-body hero-introduction">{profile.introduction}</p>
+        <div className={styles.heroCopy}>
+          <p className={styles.heroHeadline}>{profile.headline}</p>
+          <p className={`type-body ${styles.heroIntroduction}`}>{profile.introduction}</p>
 
-          <div className="hero-context">
+          <div className={styles.heroContext}>
             <p>
               Currently <span>{currentRole}</span> at{" "}
               <span>{currentCompany}</span>.
@@ -26,11 +27,11 @@ export function Hero({ profile, currentRole, currentCompany }: HeroProps) {
             {profile.location && <p>Based in {profile.location}</p>}
           </div>
 
-          <div className="hero-actions">
-            <a className="hero-resume" href="/resume.pdf">
+          <div className={styles.heroActions}>
+            <a className={styles.heroResume} href="/resume.pdf">
               View Resume <span aria-hidden="true">↗</span>
             </a>
-            <div className="hero-social-links">
+            <div className={styles.heroSocialLinks}>
               {profile.githubUrl && (
                 <a
                   className="action-link"
@@ -65,7 +66,7 @@ export function Hero({ profile, currentRole, currentCompany }: HeroProps) {
           sizes="(min-width: 1184px) 461px, (min-width: 1024px) calc((100vw - 56px) / 2.45), (min-width: 416px) 384px, calc(100vw - 32px)"
           loading="eager"
           fetchPriority="high"
-          className="hero-portrait hero-portrait-dark"
+          className={`${styles.heroPortrait} ${styles.heroPortraitDark}`}
         />
         <Image
           src="/images/profile/hero-portrait-light.png"
@@ -75,7 +76,7 @@ export function Hero({ profile, currentRole, currentCompany }: HeroProps) {
           sizes="(min-width: 1184px) 461px, (min-width: 1024px) calc((100vw - 56px) / 2.45), (min-width: 416px) 384px, calc(100vw - 32px)"
           loading="eager"
           fetchPriority="high"
-          className="hero-portrait hero-portrait-light"
+          className={`${styles.heroPortrait} ${styles.heroPortraitLight}`}
         />
       </div>
     </section>

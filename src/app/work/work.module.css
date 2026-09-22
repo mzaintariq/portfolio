@@ -1,0 +1,18 @@
+@value workStory from "../../components/work/work-entry.module.css";
+
+.workPage {
+  padding-bottom: 0;
+}
+
+.workStoryList {
+  list-style: none;
+  padding: 0;
+}
+
+.workStoryBand:nth-child(even) {
+  background: var(--surface);
+}
+
+.workStoryBand:first-child .workStory {
+  padding-top: 0;
+}

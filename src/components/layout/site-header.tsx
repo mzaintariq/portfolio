@@ -5,7 +5,8 @@ import Link from "next/link";
 import { useRef, useState, type KeyboardEvent } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6";
 import { profile } from "@/content/profile";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import styles from "./site-header.module.css";
 
 const navigation = [
   { label: "Work", href: "/work" },
@@ -46,10 +47,10 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="site-header" onKeyDown={handleKeyDown}>
-      <div className="container header-inner">
+    <header className={styles.siteHeader} onKeyDown={handleKeyDown}>
+      <div className={`container ${styles.headerInner}`}>
         <Link
-          className="brand"
+          className={styles.brand}
           href="/"
           aria-label={`${profile.fullName}, home`}
           onClick={() => setIsMenuOpen(false)}
@@ -62,7 +63,7 @@ export function SiteHeader() {
             sizes="40px"
             loading="eager"
             fetchPriority="high"
-            className="brand-logo logo-light-theme"
+            className={`${styles.brandLogo} ${styles.logoLightTheme}`}
           />
           <Image
             src="/logo-light.png"
@@ -72,12 +73,12 @@ export function SiteHeader() {
             sizes="40px"
             loading="eager"
             fetchPriority="high"
-            className="brand-logo logo-dark-theme"
+            className={`${styles.brandLogo} ${styles.logoDarkTheme}`}
           />
         </Link>
 
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <ul className="nav-list">
+        <nav className={styles.desktopNav} aria-label="Primary navigation">
+          <ul className={styles.navList}>
             <NavigationLinks />
             <li>
               <ThemeToggle />
@@ -85,10 +86,10 @@ export function SiteHeader() {
           </ul>
         </nav>
 
-        <div className="mobile-header-actions">
+        <div className={styles.mobileHeaderActions}>
           <ThemeToggle />
           <button
-            className="menu-toggle"
+            className={styles.menuToggle}
             type="button"
             ref={menuButtonRef}
             aria-controls="mobile-navigation"
@@ -106,15 +107,15 @@ export function SiteHeader() {
       </div>
 
       <nav
-        className="mobile-nav"
+        className={styles.mobileNav}
         id="mobile-navigation"
         aria-label="Mobile navigation"
         data-open={isMenuOpen}
         aria-hidden={!isMenuOpen}
         inert={!isMenuOpen}
       >
-        <div className="mobile-nav-content">
-          <ul className="container mobile-nav-list">
+        <div className={styles.mobileNavContent}>
+          <ul className={`container ${styles.mobileNavList}`}>
             <NavigationLinks onNavigate={() => setIsMenuOpen(false)} />
           </ul>
         </div>

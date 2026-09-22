@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ProjectDetail } from "@/components/project-detail";
+import { ProjectDetail } from "@/components/projects/project-detail";
 import { projects } from "@/content/projects";
 
 function getProject(slug: string) {

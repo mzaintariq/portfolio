@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { profile } from "@/content/profile";
+import innerStyles from "@/components/layout/inner-page.module.css";
+import styles from "./contact.module.css";
 
 export const metadata: Metadata = { title: "Contact" };
 
@@ -11,23 +13,23 @@ export default function ContactPage() {
   ];
 
   return (
-    <main className="container inner-page contact-page">
-      <header className="inner-page-header contact-page-header">
-        <h1 className="type-page-title inner-page-title">Contact</h1>
-        <p className="type-body inner-page-introduction">
+    <main className={`container ${innerStyles.innerPage}`}>
+      <header className={`${innerStyles.innerPageHeader} ${styles.contactPageHeader}`}>
+        <h1 className={`type-page-title ${innerStyles.innerPageTitle}`}>Contact</h1>
+        <p className={`type-body ${innerStyles.innerPageIntroduction}`}>
           For conversations about frontend engineering roles or product work,
           get in touch by email or connect through the links below.
         </p>
       </header>
 
-      <section className="contact-details" aria-labelledby="contact-details">
+      <section className={styles.contactDetails} aria-labelledby="contact-details">
         <h2 className="sr-only" id="contact-details">Details</h2>
-        <dl className="contact-details-list">
+        <dl className={styles.contactDetailsList}>
           {profile.email && (
-            <div className="contact-email-block">
-              <dt className="type-metadata inner-label">Email</dt>
+            <div className={styles.contactEmailBlock}>
+              <dt className={`type-metadata ${innerStyles.innerLabel}`}>Email</dt>
               <dd>
-                <a className="action-link contact-email-link" href={`mailto:${profile.email}`}>
+                <a className={`action-link ${styles.contactEmailLink}`} href={`mailto:${profile.email}`}>
                   {profile.email}
                 </a>
               </dd>
@@ -48,9 +50,9 @@ export default function ContactPage() {
         </dl>
       </section>
 
-      <section className="contact-page-links" aria-labelledby="contact-links">
-        <h2 className="type-metadata inner-label" id="contact-links">Links</h2>
-        <ul className="inner-actions">
+      <section className={styles.contactPageLinks} aria-labelledby="contact-links">
+        <h2 className={`type-metadata ${innerStyles.innerLabel}`} id="contact-links">Links</h2>
+        <ul className={innerStyles.innerActions}>
           {links.map((link) => {
             const isExternal = /^https?:\/\//.test(link.href);
             return (

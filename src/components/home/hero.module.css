@@ -1,0 +1,166 @@
+.hero {
+  padding-top: clamp(var(--space-6), 3.75vw, 3.75rem);
+}
+
+.heroLayout {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.heroCopy {
+  min-width: 0;
+}
+
+.heroName {
+  position: relative;
+  z-index: 1;
+  grid-column: 1 / -1;
+  min-width: 0;
+  font-size: var(--text-page-title);
+  font-weight: 800;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+
+.heroHeadline {
+  max-width: 28ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: var(--tracking-heading);
+  text-wrap: pretty;
+}
+
+.heroIntroduction {
+  max-width: 54ch;
+  margin-top: var(--space-5);
+  color: var(--muted);
+  text-wrap: pretty;
+}
+
+.heroContext {
+  margin-top: var(--space-8);
+  color: var(--muted);
+  font-size: var(--text-navigation);
+  line-height: var(--line-height-body);
+}
+
+.heroContext span {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+.heroContext p + p {
+  margin-top: var(--space-1);
+}
+
+.heroActions,
+.heroSocialLinks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-6);
+}
+
+.heroActions {
+  margin-top: var(--space-6);
+  font-size: var(--text-navigation);
+}
+
+.heroResume {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-height: var(--space-12);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--control-radius);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 500;
+}
+
+.heroResume:hover,
+.heroResume:active {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.heroResume:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+.heroPortrait {
+  display: block;
+  width: min(100%, 24rem);
+  height: auto;
+  aspect-ratio: 4 / 5;
+  justify-self: center;
+  object-fit: contain;
+  object-position: center bottom;
+  margin-top: -3rem;
+}
+
+.heroPortraitDark {
+  display: none;
+  margin-top: -1rem;
+}
+
+:global(.dark) .heroPortraitLight {
+  display: none;
+}
+
+:global(.dark) .heroPortraitDark {
+  display: block;
+}
+
+@media (min-width: 64rem) {
+  .hero {
+    container-type: inline-size;
+  }
+
+  .heroLayout {
+    --hero-name-size: calc(min(100cqi - var(--page-gutter), var(--content-max-width)) * 0.099);
+    --hero-portrait-height: calc((min(100cqi - var(--page-gutter), var(--content-max-width)) - var(--space-6)) / 2.45 * 2415 / 2157);
+    --hero-portrait-overlap: calc(var(--hero-name-size) * 0.35);
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    gap: var(--space-6) var(--space-1);
+  }
+
+  .heroName {
+    font-size: var(--hero-name-size);
+    white-space: nowrap;
+  }
+
+  .heroCopy {
+    grid-column: 1;
+    grid-row: 2;
+    padding-bottom: var(--space-10);
+    min-height: calc(var(--hero-portrait-height) - var(--space-10) - var(--hero-portrait-overlap));
+  }
+
+  .heroHeadline,
+  .heroIntroduction {
+    max-width: none;
+  }
+
+  .heroPortrait {
+    position: absolute;
+    z-index: 2;
+    grid-column: 2;
+    grid-row: 2;
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 2157 / 2415;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+}

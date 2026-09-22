@@ -1,0 +1,76 @@
+.projectDetailImage {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background: var(--surface);
+}
+
+.projectDetailHeader {
+  padding-block: var(--space-8) var(--inner-section-space);
+}
+
+.projectBackLink {
+  font-size: var(--text-navigation);
+}
+
+.projectDetailIntro {
+  display: grid;
+  align-items: end;
+  gap: var(--space-6);
+  margin-top: var(--space-10);
+}
+
+.projectDetailImage {
+  margin-bottom: var(--space-12);
+}
+.projectDetailBody {
+  display: grid;
+  gap: var(--space-10);
+  align-items: start;
+}
+
+.projectOverview {
+  padding: clamp(var(--space-5), 4vw, var(--space-12));
+  background: var(--surface);
+}
+
+.projectOverview > p {
+  max-width: var(--prose-max-width);
+  margin-top: var(--space-5);
+}
+
+.projectDetailFacts {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.projectDetailFacts h2 {
+  margin-bottom: var(--space-3);
+}
+
+.projectTechnologyList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+  padding: 0;
+  color: var(--muted);
+  font-size: var(--text-navigation);
+  list-style: none;
+}
+
+@media (min-width: 64rem) {
+  .projectDetailIntro {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: var(--space-16);
+  }
+
+  .projectDetailBody {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.6fr);
+    gap: var(--space-16);
+  }
+
+  .projectDetailFacts {
+    padding-top: var(--space-4);
+  }
+}
