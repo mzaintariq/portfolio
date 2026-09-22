@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CreativeWork } from "@/components/creative-work";
 import { ProjectCard } from "@/components/project-card";
 import { projects } from "@/content/projects";
 
@@ -36,6 +37,7 @@ export default function ProjectsPage() {
           Projects will be added here.
         </p>
       )}
+      <CreativeWork />
     </main>
   );
 }

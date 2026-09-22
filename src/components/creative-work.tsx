@@ -1,5 +1,4 @@
 import {
-  creativeBackground,
   creativeItems,
   creativeSocialLinks,
   type CreativeCategory,
@@ -15,18 +14,9 @@ export function CreativeWork() {
   const instagram = creativeSocialLinks.find((link) => link.type === "instagram");
 
   return (
-    <section className="creative-background" aria-labelledby="creative-background-title">
+    <section className="creative-work" aria-labelledby="creative-work-title">
       <div className="container">
-        <div className="about-section-layout">
-          <h2 className="type-work-title" id="creative-background-title">
-            {creativeBackground.title}
-          </h2>
-          <div className="about-section-entries">
-            {creativeBackground.paragraphs.map((paragraph) => (
-              <p className="type-body" key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
+        <h2 className="type-section-title" id="creative-work-title">Creative Work</h2>
 
         <div className="creative-groups">
           {categories.map((category) => {

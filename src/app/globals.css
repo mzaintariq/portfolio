@@ -1172,8 +1172,12 @@ body:has(.home-page) .site-footer {
   margin-top: var(--space-10);
 }
 
-.creative-background {
+.creative-background,
+.creative-work {
   padding-block: var(--inner-section-space);
+}
+
+.creative-background {
   background: var(--surface);
 }
 
