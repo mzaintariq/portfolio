@@ -63,7 +63,7 @@ export function Hero({ profile, currentRole, currentCompany }: HeroProps) {
           alt={`Portrait of ${profile.fullName}`}
           width={2494}
           height={3850}
-          sizes="(min-width: 1184px) 461px, (min-width: 1024px) calc((100vw - 56px) / 2.45), (min-width: 416px) 384px, calc(100vw - 32px)"
+          sizes="(min-width: 1488px) 587px, (min-width: 1024px) calc((100vw - 52px) / 2.45), (min-width: 432px) 384px, calc(100vw - 48px)"
           loading="eager"
           fetchPriority="high"
           className={`${styles.heroPortrait} ${styles.heroPortraitDark}`}
@@ -73,7 +73,7 @@ export function Hero({ profile, currentRole, currentCompany }: HeroProps) {
           alt={`Portrait of ${profile.fullName}`}
           width={2157}
           height={2415}
-          sizes="(min-width: 1184px) 461px, (min-width: 1024px) calc((100vw - 56px) / 2.45), (min-width: 416px) 384px, calc(100vw - 32px)"
+          sizes="(min-width: 1488px) 587px, (min-width: 1024px) calc((100vw - 52px) / 2.45), (min-width: 432px) 384px, calc(100vw - 48px)"
           loading="eager"
           fetchPriority="high"
           className={`${styles.heroPortrait} ${styles.heroPortraitLight}`}

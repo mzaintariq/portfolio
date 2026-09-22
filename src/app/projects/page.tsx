@@ -26,7 +26,7 @@ export default function ProjectsPage() {
 
       {orderedProjects.length > 0 ? (
         <div className={styles.projectsCollection}>
-          <ul className={`container ${styles.projectGrid}`}>
+          <ul className={`media-container ${styles.projectGrid}`}>
             {orderedProjects.map((project) => (
               <li key={project.slug}>
                 <ProjectCard project={project} />

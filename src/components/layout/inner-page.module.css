@@ -5,6 +5,7 @@
 
 .innerPageHeader {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   align-items: end;
   gap: var(--space-6);
   padding-block: clamp(var(--space-10), 5vw, var(--space-20)) var(--inner-section-space);
@@ -17,7 +18,7 @@
 }
 
 .innerPageIntroduction {
-  max-width: 46ch;
+  max-width: var(--summary-max-width);
   color: var(--muted);
   text-wrap: pretty;
 }
@@ -36,7 +37,7 @@
 }
 
 .innerHighlightList {
-  max-width: var(--prose-max-width);
+  max-width: var(--reading-max-width);
   padding-left: var(--space-5);
   list-style: disc;
   font-size: var(--text-body);
@@ -52,7 +53,7 @@
 }
 
 .innerTechnologies {
-  max-width: var(--prose-max-width);
+  max-width: var(--reading-max-width);
   line-height: 1.8;
 }
 

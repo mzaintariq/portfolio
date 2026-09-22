@@ -4,12 +4,14 @@
 
 .homeProjectsHeading {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-6);
   align-items: end;
 }
 
 .homeProjectList {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-12);
   margin-top: var(--space-12);
   padding: 0;
@@ -58,7 +60,7 @@
 }
 
 .homeProjectDescription {
-  max-width: 46ch;
+  max-width: var(--reading-max-width);
   margin-block: var(--space-5) var(--space-6);
   color: var(--muted);
 }

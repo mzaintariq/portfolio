@@ -6,6 +6,7 @@
 
 .homeAboutLayout {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-12);
 }
 
@@ -20,7 +21,7 @@
 }
 
 .homeAboutSupport {
-  max-width: 48ch;
+  max-width: var(--reading-max-width);
   margin-top: var(--space-6);
   color: var(--muted);
 }
@@ -35,6 +36,7 @@
 
 .homeContactLayout {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-8);
   align-items: end;
 }
@@ -63,7 +65,7 @@ body:has(.homePage) .siteFooter {
 
 @media (min-width: 64rem) {
   .homeAboutLayout {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    grid-template-columns: minmax(0, min(40%, 26rem)) minmax(0, 1fr);
     gap: var(--space-24);
   }
 

@@ -16,6 +16,7 @@
 
 .projectDetailIntro {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   align-items: end;
   gap: var(--space-6);
   margin-top: var(--space-10);
@@ -26,6 +27,7 @@
 }
 .projectDetailBody {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-10);
   align-items: start;
 }
@@ -36,12 +38,13 @@
 }
 
 .projectOverview > p {
-  max-width: var(--prose-max-width);
+  max-width: var(--reading-max-width);
   margin-top: var(--space-5);
 }
 
 .projectDetailFacts {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-8);
 }
 

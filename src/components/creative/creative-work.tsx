@@ -17,7 +17,7 @@ export function CreativeWork() {
 
   return (
     <section className={styles.creativeWork} aria-labelledby="creative-work-title">
-      <div className="container">
+      <div className="media-container">
         <h2 className="type-section-title" id="creative-work-title">Creative Work</h2>
 
         <div className={styles.creativeGroups}>

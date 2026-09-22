@@ -21,8 +21,8 @@
 }
 
 @media (min-width: 64rem) {
-  .aboutPageHeader {
-    grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+  .aboutPage .aboutPageHeader {
+    grid-template-columns: minmax(0, min(30%, 22rem)) minmax(0, 1fr);
     gap: var(--space-20);
   }
 }

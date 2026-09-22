@@ -4,6 +4,7 @@
 
 .creativeGroups {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-16);
   margin-top: var(--space-16);
 }
@@ -11,6 +12,7 @@
 .creativeGroup,
 .creativeItems {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
   gap: var(--space-8);
 }
@@ -35,7 +37,7 @@
 }
 
 .creativeItemDescription {
-  max-width: 46ch;
+  max-width: var(--summary-max-width);
   margin-top: var(--space-3);
   color: var(--muted);
 }
@@ -61,7 +63,7 @@
 
 @media (min-width: 64rem) {
   .creativeGroup {
-    grid-template-columns: 9rem minmax(0, 1fr);
+    grid-template-columns: minmax(0, min(15%, 12rem)) minmax(0, 1fr);
     gap: var(--space-12);
   }
 }

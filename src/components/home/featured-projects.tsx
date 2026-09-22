@@ -10,7 +10,7 @@ export function FeaturedProjects() {
 
   return (
     <section className={styles.homeProjects} aria-labelledby="home-projects-title">
-      <div className="container">
+      <div className="media-container">
         <header className={styles.homeProjectsHeading}>
           <div className={homeSectionStyles.homeSectionIntro}>
             <p className={`type-metadata ${homeSectionStyles.homeSectionLabel}`}>02 / Projects</p>
@@ -40,7 +40,7 @@ export function FeaturedProjects() {
                       src={project.image.src}
                       alt={project.image.alt}
                       fill
-                      sizes="(min-width: 1200px) 544px, (min-width: 768px) 45vw, calc(100vw - 32px)"
+                      sizes="(min-width: 1488px) 688px, (min-width: 768px) calc((100vw - 112px) / 2), calc(100vw - 48px)"
                     />
                   </Link>
                 )}

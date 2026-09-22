@@ -17,7 +17,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             src={project.image.src}
             alt={project.image.alt}
             fill
-            sizes="(min-width: 1200px) 544px, (min-width: 768px) 45vw, calc(100vw - 32px)"
+            sizes="(min-width: 1488px) 688px, (min-width: 768px) calc((100vw - 112px) / 2), calc(100vw - 48px)"
             className="object-cover"
           />
         </Link>

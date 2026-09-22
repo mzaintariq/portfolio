@@ -52,9 +52,14 @@
   --space-32: 8rem;
   --section-space: clamp(var(--space-14), 8vw, var(--space-32));
   --content-gap: clamp(var(--space-6), 4vw, var(--space-12));
-  --prose-max-width: 65ch;
-  --content-max-width: 72rem;
-  /* Total horizontal gutter; preserve the existing container geometry. */
+
+  /* Page chrome, readable copy, and media have independent width roles.
+     Media and page containers share an outer edge; text stays narrower. */
+  --page-max-width: 82rem;
+  --reading-max-width: 65ch;
+  --summary-max-width: 52ch;
+  --media-max-width: 82rem;
+  /* Total horizontal gutter, split equally between both sides. */
   --page-gutter: var(--space-12);
 
   /* Controls */
@@ -228,7 +233,14 @@ body {
   letter-spacing: var(--tracking-body);
 }
 
-.container {
-  width: min(100% - var(--page-gutter), var(--content-max-width));
+.container,
+.media-container {
+  width: min(100% - var(--page-gutter), var(--page-max-width));
+  /* Override Tailwind's breakpoint-specific .container max-widths. */
+  max-width: none;
   margin-inline: auto;
+}
+
+.media-container {
+  width: min(100% - var(--page-gutter), var(--media-max-width));
 }

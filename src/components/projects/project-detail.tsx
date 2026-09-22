@@ -27,7 +27,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             src={project.image.src}
             alt={project.image.alt}
             fill
-            sizes="(min-width: 1184px) 1152px, calc(100vw - 32px)"
+            sizes="(min-width: 1488px) 1440px, calc(100vw - 48px)"
             className="object-contain"
             loading="eager"
           />

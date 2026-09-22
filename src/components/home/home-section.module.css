@@ -4,7 +4,7 @@
 }
 
 .homeSectionDescription {
-  max-width: 44ch;
+  max-width: var(--summary-max-width);
   margin-top: var(--space-5);
   color: var(--muted);
 }
