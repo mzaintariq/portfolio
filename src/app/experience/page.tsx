@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Experience" };
 export default function ExperiencePage() {
   return (
     <main className="inner-page experience-page">
-      <header className="container inner-page-header">
+      <header className="container inner-page-header index-page-masthead">
         <h1 className="type-page-title inner-page-title">
           Experience
         </h1>

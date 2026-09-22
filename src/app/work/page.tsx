@@ -7,7 +7,7 @@ export const metadata: Metadata = { title: "Work" };
 export default function WorkPage() {
   return (
     <main className="inner-page work-page">
-      <header className="container inner-page-header">
+      <header className="container inner-page-header index-page-masthead">
         <h1 className="type-page-title inner-page-title">
           Professional Work
         </h1>

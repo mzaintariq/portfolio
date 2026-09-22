@@ -11,7 +11,7 @@ export default function ProjectsPage() {
 
   return (
     <main className="inner-page projects-page">
-      <header className="container inner-page-header">
+      <header className="container inner-page-header index-page-masthead">
         <h1 className="type-page-title inner-page-title">
           Projects
         </h1>

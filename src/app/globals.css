@@ -880,10 +880,6 @@ body:has(.home-page) .site-footer {
   margin-top: var(--space-6);
 }
 
-.experience-page .inner-page-header {
-  align-items: start;
-}
-
 .experience-list {
   display: grid;
   gap: var(--space-12);
@@ -1204,7 +1200,8 @@ body:has(.home-page) .site-footer {
 }
 
 @media (min-width: 64rem) {
-  .inner-page-header,
+  /* Index mastheads share columns; About and Contact keep their own composition. */
+  .index-page-masthead,
   .project-detail-intro {
     grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
     gap: var(--space-16);
