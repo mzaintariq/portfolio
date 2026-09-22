@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState, type KeyboardEvent } from "react";
 import { FaBars, FaXmark } from "react-icons/fa6";
@@ -29,9 +30,6 @@ function NavigationLinks({ onNavigate }: { onNavigate?: () => void }) {
           Resume
         </a>
       </li>
-      <li>
-        <ThemeToggle />
-      </li>
     </>
   );
 }
@@ -56,41 +54,70 @@ export function SiteHeader() {
           aria-label={`${profile.fullName}, home`}
           onClick={() => setIsMenuOpen(false)}
         >
-          {profile.displayName}
+          <Image
+            src="/logo-dark.png"
+            alt={`${profile.fullName} Logo`}
+            width={630}
+            height={750}
+            sizes="40px"
+            loading="eager"
+            fetchPriority="high"
+            className="brand-logo logo-light-theme"
+          />
+          <Image
+            src="/logo-light.png"
+            alt={`${profile.fullName} Logo`}
+            width={630}
+            height={750}
+            sizes="40px"
+            loading="eager"
+            fetchPriority="high"
+            className="brand-logo logo-dark-theme"
+          />
         </Link>
 
         <nav className="desktop-nav" aria-label="Primary navigation">
           <ul className="nav-list">
             <NavigationLinks />
+            <li>
+              <ThemeToggle />
+            </li>
           </ul>
         </nav>
 
-        <button
-          className="menu-toggle"
-          type="button"
-          ref={menuButtonRef}
-          aria-controls="mobile-navigation"
-          aria-expanded={isMenuOpen}
-          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          onClick={() => setIsMenuOpen((open) => !open)}
-        >
-          {isMenuOpen ? (
-            <FaXmark aria-hidden="true" />
-          ) : (
-            <FaBars aria-hidden="true" />
-          )}
-        </button>
+        <div className="mobile-header-actions">
+          <ThemeToggle />
+          <button
+            className="menu-toggle"
+            type="button"
+            ref={menuButtonRef}
+            aria-controls="mobile-navigation"
+            aria-expanded={isMenuOpen}
+            aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            onClick={() => setIsMenuOpen((open) => !open)}
+          >
+            {isMenuOpen ? (
+              <FaXmark aria-hidden="true" />
+            ) : (
+              <FaBars aria-hidden="true" />
+            )}
+          </button>
+        </div>
       </div>
 
       <nav
         className="mobile-nav"
         id="mobile-navigation"
         aria-label="Mobile navigation"
-        hidden={!isMenuOpen}
+        data-open={isMenuOpen}
+        aria-hidden={!isMenuOpen}
+        inert={!isMenuOpen}
       >
-        <ul className="container mobile-nav-list">
-          <NavigationLinks onNavigate={() => setIsMenuOpen(false)} />
-        </ul>
+        <div className="mobile-nav-content">
+          <ul className="container mobile-nav-list">
+            <NavigationLinks onNavigate={() => setIsMenuOpen(false)} />
+          </ul>
+        </div>
       </nav>
     </header>
   );

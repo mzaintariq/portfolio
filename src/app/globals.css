@@ -277,7 +277,45 @@ body {
   white-space: nowrap;
 }
 
+.brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand-logo {
+  width: 40px;
+  height: auto;
+  margin-left: 12px;
+  margin-right: 12px;
+  max-width: 100%;
+  object-fit: contain;
+  transition: opacity 0.25s ease;
+  transition: transform 0.25s ease;
+}
+
+.brand:hover .brand-logo {
+  transform: scale(1.15);
+  transform: rotate(5deg) scale(1.15);
+}
+
+.logo-dark-theme { display: block; }
+.logo-light-theme { display: none; }
+
+.dark .logo-dark-theme {
+  display: none !important;
+}
+
+.dark .logo-light-theme {
+  display: block !important;
+}
+
 .theme-toggle {
+  display: inline-flex;
+  width: var(--touch-target-size);
+  height: var(--touch-target-size);
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   padding: 0;
   border: 0;
   background: transparent;
@@ -286,14 +324,27 @@ body {
   cursor: pointer;
 }
 
+.theme-toggle svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  color: var(--accent);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
 .theme-toggle:disabled {
   cursor: default;
 }
 
 .nav-list a:focus-visible,
 .nav-list a:hover,
-.nav-list .theme-toggle:focus-visible,
-.nav-list .theme-toggle:hover,
 .brand:focus-visible,
 .brand:hover {
   color: var(--accent);
@@ -301,7 +352,7 @@ body {
   text-underline-offset: 0.3em;
 }
 
-.menu-toggle,
+.mobile-header-actions,
 .mobile-nav {
   display: none;
 }
@@ -315,6 +366,12 @@ body {
 
   .desktop-nav {
     display: none;
+  }
+
+  .mobile-header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
   }
 
   .menu-toggle {
@@ -340,16 +397,26 @@ body {
     outline-offset: 2px;
   }
 
-  .mobile-nav:not([hidden]) {
-    display: block;
-    position: absolute;
-    z-index: 10;
-    top: 100%;
-    right: 0;
-    left: 0;
-    max-height: calc(100dvh - 4.5rem);
-    overflow-y: auto;
+  .mobile-nav {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    visibility: hidden;
     background: var(--surface);
+    transition: grid-template-rows 220ms ease, opacity 220ms ease,
+      visibility 0s linear 220ms;
+  }
+
+  .mobile-nav[data-open="true"] {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+
+  .mobile-nav-content {
+    min-height: 0;
+    overflow: hidden;
   }
 
   .mobile-nav-list {
@@ -367,24 +434,18 @@ body {
     text-decoration: none;
   }
 
-  .mobile-nav-list .theme-toggle {
-    display: flex;
-    width: 100%;
-    min-height: 3.25rem;
-    align-items: center;
-    color: var(--foreground);
-    font-size: 1rem;
-    text-align: left;
-  }
-
   .mobile-nav-list a:hover,
-  .mobile-nav-list a:focus-visible,
-  .mobile-nav-list .theme-toggle:hover,
-  .mobile-nav-list .theme-toggle:focus-visible {
+  .mobile-nav-list a:focus-visible {
     text-decoration: underline;
     text-underline-offset: 0.3em;
   }
 
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav {
+    transition: none;
+  }
 }
 
 .hero {

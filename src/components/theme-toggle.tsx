@@ -1,23 +1,24 @@
 "use client";
 
+import { FaMoon, FaSun } from "react-icons/fa6";
 import { useTheme } from "@/components/theme-provider";
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
+  const actionLabel = theme === null
+    ? "Theme loading"
+    : `Switch to ${theme === "dark" ? "light" : "dark"} mode`;
 
   return (
     <button
       className="theme-toggle"
       type="button"
-      aria-label={
-        theme === null
-          ? "Theme loading"
-          : `Current theme: ${theme}. Switch to ${theme === "dark" ? "light" : "dark"} theme`
-      }
+      aria-label={actionLabel}
+      title={actionLabel}
       disabled={theme === null}
       onClick={toggleTheme}
     >
-      {theme === null ? "Theme" : `${theme === "dark" ? "Dark" : "Light"} mode`}
+      {theme === "dark" ? <FaSun aria-hidden="true" /> : <FaMoon aria-hidden="true" />}
     </button>
   );
 }
