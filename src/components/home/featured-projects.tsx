@@ -52,14 +52,14 @@ export function FeaturedProjects() {
                   {project.technologies.slice(0, 4).join(" · ")}
                 </p>
                 <p className={`type-body ${styles.homeProjectDescription}`}>{project.description}</p>
-                <Link className={`action-link ${styles.homeProjectDetailLink}`} href={`/projects/${project.slug}`}>
-                  Explore project
-                  <span className="sr-only">: {project.title}</span>
-                  <span aria-hidden="true">→</span>
-                </Link>
-                {project.links.length > 0 && (
-                  <div className={styles.homeProjectExternalLinks}>
-                    {project.links.map((link) => {
+                <div className={styles.homeProjectActions}>
+                  <Link className="action-link" href={`/projects/${project.slug}`}>
+                    Explore project
+                    <span className="sr-only">: {project.title}</span>
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                  {project.links.length > 0 &&
+                    project.links.map((link) => {
                       const isExternal = /^https?:\/\//.test(link.url);
 
                       return (
@@ -76,8 +76,7 @@ export function FeaturedProjects() {
                         </a>
                       );
                     })}
-                  </div>
-                )}
+                </div>
               </article>
             </li>
           ))}

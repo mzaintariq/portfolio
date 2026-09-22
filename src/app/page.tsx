@@ -29,7 +29,7 @@ export default function Home() {
         <div className={`container ${styles.homeAboutLayout}`}>
           <header className={homeSectionStyles.homeSectionIntro}>
             <p className={`type-metadata ${homeSectionStyles.homeSectionLabel}`}>03 / About</p>
-            <h2 className="type-work-title" id="home-about-title">
+            <h2 className="type-section-title" id="home-about-title">
               {homeContent.about.title}
             </h2>
           </header>

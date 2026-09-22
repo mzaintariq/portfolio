@@ -1,7 +1,7 @@
 @value siteFooter from "../components/layout/site-footer.module.css";
 
 .homeAbout {
-  padding-block: clamp(var(--space-14), 8vw, var(--space-28));
+  padding-block: clamp(var(--space-12), 6vw, var(--space-24));
 }
 
 .homeAboutLayout {
@@ -16,6 +16,7 @@
 
 .homeAboutStatement {
   max-width: 26ch;
+  font-size: clamp(1.5rem, 2.75vw, 2.5rem);
   font-weight: 500;
   text-wrap: pretty;
 }
@@ -31,7 +32,7 @@
 }
 
 .homeContact {
-  padding-block: clamp(var(--space-14), 8vw, var(--space-24)) var(--space-12);
+  padding-block: clamp(var(--space-12), 6vw, var(--space-20)) var(--space-12);
 }
 
 .homeContactLayout {
@@ -42,6 +43,7 @@
 }
 
 .homeContactTitle {
+  font-size: clamp(2.25rem, 4.5vw, 4rem);
   text-wrap: balance;
 }
 
@@ -67,10 +69,6 @@ body:has(.homePage) .siteFooter {
   .homeAboutLayout {
     grid-template-columns: minmax(0, min(40%, 26rem)) minmax(0, 1fr);
     gap: var(--space-24);
-  }
-
-  .homeAbout {
-    padding-block: var(--space-32);
   }
 
   .homeContactLayout {

@@ -1,5 +1,5 @@
 .homeProjects {
-  padding-block: clamp(var(--space-14), 8vw, var(--space-28));
+  padding-block: clamp(var(--space-12), 6vw, var(--space-24));
 }
 
 .homeProjectsHeading {
@@ -39,7 +39,6 @@
 }
 
 .homeProjectTitle {
-  font-size: clamp(2rem, 3.5vw, 3rem);
   color: var(--accent);
 }
 
@@ -61,23 +60,20 @@
 
 .homeProjectDescription {
   max-width: var(--reading-max-width);
-  margin-block: var(--space-5) var(--space-6);
+  margin-block: var(--space-5) var(--space-2);
   color: var(--muted);
 }
 
-.homeProjectDetailLink {
-  margin-top: auto;
-}
-
-.homeProjectExternalLinks {
+.homeProjectActions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-2) var(--space-6);
-  margin-top: var(--space-3);
+  gap: 0 var(--space-4);
+  margin-top: auto;
+  padding-top: var(--space-2);
   font-size: var(--text-navigation);
 }
 
-.homeProjectExternalLinks :global(.action-link):not(:hover):not(:focus-visible):not(:active) {
+.homeProjectActions :global(.action-link):not(:first-child):not(:hover):not(:focus-visible):not(:active) {
   color: var(--muted);
 }
 

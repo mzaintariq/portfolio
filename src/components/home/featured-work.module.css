@@ -1,5 +1,5 @@
 .homeWork {
-  padding-block: clamp(var(--space-14), 8vw, var(--space-28));
+  padding-block: clamp(var(--space-12), 6vw, var(--space-24));
 }
 
 .homeWorkLayout {
@@ -33,7 +33,7 @@
 }
 
 .homeWorkStories :global(.action-link) {
-  margin-top: var(--space-5);
+  margin-top: var(--space-3);
   font-size: var(--text-navigation);
 }
 
