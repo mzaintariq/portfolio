@@ -20,7 +20,7 @@
   z-index: 1;
   grid-column: 1 / -1;
   min-width: 0;
-  font-size: var(--text-page-title);
+  font-size: clamp(4rem, 6vw, 5.5rem);
   font-weight: 800;
   overflow-wrap: anywhere;
   text-wrap: balance;
@@ -110,6 +110,7 @@
 .heroPortraitDark {
   display: none;
   margin-top: -1rem;
+  filter: grayscale(25%);
 }
 
 :global(.dark) .heroPortraitLight {

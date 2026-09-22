@@ -55,7 +55,7 @@
   --prose-max-width: 65ch;
   --content-max-width: 72rem;
   /* Total horizontal gutter; preserve the existing container geometry. */
-  --page-gutter: var(--space-8);
+  --page-gutter: var(--space-12);
 
   /* Controls */
   --control-radius: 0.25rem;
