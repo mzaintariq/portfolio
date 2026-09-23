@@ -21,12 +21,12 @@ export const experiences: Experience[] = [
     },
     location: "Remote",
     summary:
-      "Frontend-focused engineer building React, TypeScript, and Next.js applications across enterprise commerce platforms, CMS/editor experiences, and developer tooling.",
+      "Client-embedded senior engineer on Elastic Path's commerce platform for 5+ years, building React, TypeScript, and Next.js products across an enterprise admin console, a payments and checkout vertical, and an open-source storefront.",
     highlights: [
-      "Designed and delivered complex frontend workflows for enterprise applications.",
-      "Built reusable UI patterns and scalable frontend architecture across multiple products.",
-      "Collaborated with product, design, backend, and QA teams to ship reliable user experiences.",
-      "Mentored engineers, reviewed code, and contributed to frontend engineering practices.",
+      "Led the redesign of Commerce Manager's Product Editor, the primary UI merchants use to manage products and pricing, on a commerce platform processing tens of millions of API requests weekly for a portfolio of enterprise clients.",
+      "Owned checkout and payments architecture work, including a payment-adapter redesign adopted as the package's contract within a week, and two checkout-integrity bugs found and fixed independently.",
+      "Migrated legacy JavaScript modules to TypeScript using a strangler-fig approach and standardized 10+ data tables onto a single reusable pattern across two codebases.",
+      "Mentored and onboarded junior engineers, interviewed frontend candidates, and received a client-awarded bonus for delivery quality.",
     ],
     technologies: [
       "React",
