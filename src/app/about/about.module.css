@@ -16,10 +16,6 @@
   padding-block: var(--inner-section-space);
 }
 
-/* .creativeBackground {
-  background: var(--surface);
-} */
-
 @media (min-width: 64rem) {
   .aboutPage .aboutPageHeader {
     grid-template-columns: minmax(0, min(30%, 22rem)) minmax(0, 1fr);
