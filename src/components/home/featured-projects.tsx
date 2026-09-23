@@ -9,9 +9,12 @@ export function FeaturedProjects() {
   const featuredProjects = projects.filter((project) => project.featured);
 
   return (
-    <section className={styles.homeProjects} aria-labelledby="home-projects-title">
+    <section
+      className="py-[clamp(var(--space-12),6vw,var(--space-24))]"
+      aria-labelledby="home-projects-title"
+    >
       <div className="media-container">
-        <header className={styles.homeProjectsHeading}>
+        <header className="grid grid-cols-1 items-end gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10">
           <div className={homeSectionStyles.homeSectionIntro}>
             <p className={`type-metadata ${homeSectionStyles.homeSectionLabel}`}>02 / Projects</p>
             <h2 className="type-section-title" id="home-projects-title">
@@ -26,13 +29,16 @@ export function FeaturedProjects() {
           </Link>
         </header>
 
-        <ul className={styles.homeProjectList}>
+        <ul className="mt-12 grid list-none grid-cols-1 gap-12 p-0 md:mt-16 md:grid-cols-2 md:gap-16">
           {featuredProjects.map((project) => (
             <li key={project.slug}>
-              <article className={styles.homeProject} aria-labelledby={`home-project-${project.slug}`}>
+              <article
+                className="flex h-full min-w-0 flex-col items-start"
+                aria-labelledby={`home-project-${project.slug}`}
+              >
                 {project.image && (
                   <Link
-                    className={styles.homeProjectImage}
+                    className="relative mb-6 block aspect-[16/10] w-full"
                     href={`/projects/${project.slug}`}
                     aria-label={`Explore ${project.title}`}
                   >
@@ -41,18 +47,26 @@ export function FeaturedProjects() {
                       alt={project.image.alt}
                       fill
                       sizes="(min-width: 1488px) 688px, (min-width: 768px) calc((100vw - 112px) / 2), calc(100vw - 48px)"
+                      className="object-cover"
                     />
                   </Link>
                 )}
-                <h3 className={`type-work-title ${styles.homeProjectTitle}`} id={`home-project-${project.slug}`}>
+                <h3
+                  className={`type-work-title text-[var(--accent)] ${styles.homeProjectTitle}`}
+                  id={`home-project-${project.slug}`}
+                >
                   <Link href={`/projects/${project.slug}`}>{project.title}</Link>
                 </h3>
-                <p className={`type-metadata ${styles.homeProjectTechnologies}`}>
+                <p className="type-metadata mt-3">
                   <span className="sr-only">Technologies: </span>
                   {project.technologies.slice(0, 4).join(" · ")}
                 </p>
-                <p className={`type-body ${styles.homeProjectDescription}`}>{project.description}</p>
-                <div className={styles.homeProjectActions}>
+                <p className="type-body mt-5 mb-2 max-w-[var(--reading-max-width)] text-[var(--muted)]">
+                  {project.description}
+                </p>
+                <div
+                  className={`mt-auto flex flex-wrap gap-x-4 gap-y-0 pt-2 text-[length:var(--text-navigation)] ${styles.homeProjectActions}`}
+                >
                   <Link className="action-link" href={`/projects/${project.slug}`}>
                     Explore project
                     <span className="sr-only">: {project.title}</span>
