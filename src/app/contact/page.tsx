@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { profile } from "@/content/profile";
-import innerStyles from "@/components/layout/inner-page.module.css";
-import styles from "./contact.module.css";
 
 export const metadata: Metadata = { title: "Contact" };
 
@@ -13,23 +11,29 @@ export default function ContactPage() {
   ];
 
   return (
-    <main className={`container ${innerStyles.innerPage}`}>
-      <header className={`${innerStyles.innerPageHeader} ${styles.contactPageHeader}`}>
-        <h1 className={`type-page-title ${innerStyles.innerPageTitle}`}>Contact</h1>
-        <p className={`type-body ${innerStyles.innerPageIntroduction}`}>
+    <main className="container [--inner-section-space:clamp(var(--space-14),7vw,var(--space-24))] pb-[var(--inner-section-space)]">
+      <header className="grid grid-cols-1 gap-6 pt-[clamp(var(--space-10),5vw,var(--space-20))] pb-[var(--inner-section-space)] [align-items:end]">
+        <h1 className="type-page-title max-w-[14ch] text-balance [overflow-wrap:anywhere]">Contact</h1>
+        <p className="type-body max-w-[var(--summary-max-width)] text-[var(--muted)] text-pretty">
           For conversations about frontend engineering roles or product work,
           get in touch by email or connect through the links below.
         </p>
       </header>
 
-      <section className={styles.contactDetails} aria-labelledby="contact-details">
+      <section
+        className="bg-[var(--surface)] p-[clamp(var(--space-5),4vw,var(--space-12))]"
+        aria-labelledby="contact-details"
+      >
         <h2 className="sr-only" id="contact-details">Details</h2>
-        <dl className={styles.contactDetailsList}>
+        <dl className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:gap-12">
           {profile.email && (
-            <div className={styles.contactEmailBlock}>
-              <dt className={`type-metadata ${innerStyles.innerLabel}`}>Email</dt>
-              <dd>
-                <a className={`action-link ${styles.contactEmailLink}`} href={`mailto:${profile.email}`}>
+            <div className="col-span-full">
+              <dt className="type-metadata text-[var(--accent)]">Email</dt>
+              <dd className="mt-2 max-w-[var(--reading-max-width)]">
+                <a
+                  className="action-link text-[length:clamp(1.125rem,3.5vw,3rem)] [overflow-wrap:anywhere]"
+                  href={`mailto:${profile.email}`}
+                >
                   {profile.email}
                 </a>
               </dd>
@@ -38,21 +42,21 @@ export default function ContactPage() {
           {profile.location && (
             <div>
               <dt className="type-metadata">Location</dt>
-              <dd className="type-body">{profile.location}</dd>
+              <dd className="type-body mt-2 max-w-[var(--reading-max-width)]">{profile.location}</dd>
             </div>
           )}
           {profile.workAuthorization && (
             <div>
               <dt className="type-metadata">Work authorization</dt>
-              <dd className="type-body">{profile.workAuthorization}</dd>
+              <dd className="type-body mt-2 max-w-[var(--reading-max-width)]">{profile.workAuthorization}</dd>
             </div>
           )}
         </dl>
       </section>
 
-      <section className={styles.contactPageLinks} aria-labelledby="contact-links">
-        <h2 className={`type-metadata ${innerStyles.innerLabel}`} id="contact-links">Links</h2>
-        <ul className={innerStyles.innerActions}>
+      <section className="mt-10 grid grid-cols-1 gap-4" aria-labelledby="contact-links">
+        <h2 className="type-metadata text-[var(--accent)]" id="contact-links">Links</h2>
+        <ul className="m-0 flex list-none flex-wrap items-center gap-x-6 gap-y-3 p-0">
           {links.map((link) => {
             const isExternal = /^https?:\/\//.test(link.href);
             return (

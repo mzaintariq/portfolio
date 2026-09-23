@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { homeContent } from "@/content/home";
 import { projects } from "@/content/projects";
-import homeSectionStyles from "./home-section.module.css";
 import styles from "./featured-projects.module.css";
 
 export function FeaturedProjects() {
@@ -15,12 +14,12 @@ export function FeaturedProjects() {
     >
       <div className="media-container">
         <header className="grid grid-cols-1 items-end gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10">
-          <div className={homeSectionStyles.homeSectionIntro}>
-            <p className={`type-metadata ${homeSectionStyles.homeSectionLabel}`}>02 / Projects</p>
+          <div>
+            <p className="type-metadata mb-3 text-[var(--accent)]">02 / Projects</p>
             <h2 className="type-section-title" id="home-projects-title">
               {homeContent.featuredProjects.title}
             </h2>
-            <p className={`type-body ${homeSectionStyles.homeSectionDescription}`}>
+            <p className="type-body mt-3 max-w-[var(--summary-max-width)] text-[var(--muted)]">
               {homeContent.featuredProjects.introduction}
             </p>
           </div>

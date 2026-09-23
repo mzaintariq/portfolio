@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/content/projects";
-import innerStyles from "@/components/layout/inner-page.module.css";
 import styles from "./project-card.module.css";
 
 type ProjectCardProps = {
@@ -10,9 +9,16 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className={styles.projectPreview} aria-labelledby={`project-${project.slug}`}>
+    <article
+      className="flex h-full min-w-0 flex-col [align-items:start]"
+      aria-labelledby={`project-${project.slug}`}
+    >
       {project.image && (
-        <Link className={styles.projectPreviewImage} href={`/projects/${project.slug}`} aria-label={`Explore ${project.title}`}>
+        <Link
+          className="relative mb-6 block aspect-[16/10] w-full shrink-0 bg-[var(--surface)]"
+          href={`/projects/${project.slug}`}
+          aria-label={`Explore ${project.title}`}
+        >
           <Image
             src={project.image.src}
             alt={project.image.alt}
@@ -22,26 +28,33 @@ export function ProjectCard({ project }: ProjectCardProps) {
           />
         </Link>
       )}
-      <div className={styles.projectPreviewCopy}>
-        {project.featured && <p className={`type-metadata ${innerStyles.innerLabel}`}>Featured project</p>}
-        <h2 className={`type-section-title ${styles.projectPreviewTitle}`} id={`project-${project.slug}`}>
+      <div className="flex h-full min-w-0 flex-1 flex-col [align-items:start]">
+        {project.featured && <p className="type-metadata text-[var(--accent)]">Featured project</p>}
+        <h2
+          className={`type-section-title mt-3 text-[var(--accent)] text-balance ${styles.projectPreviewTitle}`}
+          id={`project-${project.slug}`}
+        >
           <Link href={`/projects/${project.slug}`}>{project.title}</Link>
         </h2>
-        <p className={`type-body ${styles.projectPreviewDescription}`}>{project.description}</p>
+        <p className="type-body mt-5 max-w-[var(--reading-max-width)] text-[var(--muted)]">
+          {project.description}
+        </p>
         {project.technologies.length > 0 && (
-          <p className={`type-metadata ${innerStyles.innerTechnologies}`}>
+          <p className="type-metadata mt-5 max-w-[var(--reading-max-width)] leading-[1.8]">
             <span className="sr-only">Technologies: </span>
             {project.technologies.join(" · ")}
           </p>
         )}
-        <div className={styles.projectPreviewActions}>
+        <div className="mt-auto pt-8">
           <Link className="action-link" href={`/projects/${project.slug}`}>
             Explore project
             <span className="sr-only">: {project.title}</span>
             <span aria-hidden="true">→</span>
           </Link>
           {project.links.length > 0 && (
-            <div className={`${innerStyles.innerActions} ${innerStyles.innerSecondaryActions}`}>
+            <div
+              className={`mt-3 flex flex-wrap items-center gap-x-6 gap-y-3 text-[length:var(--text-navigation)] ${styles.projectPreviewSecondaryActions}`}
+            >
               {project.links.map((link) => {
                 const isExternal = /^https?:\/\//.test(link.url);
                 return (

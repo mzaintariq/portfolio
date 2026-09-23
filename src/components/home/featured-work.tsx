@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { homeContent } from "@/content/home";
 import { workItems } from "@/content/work";
-import homeSectionStyles from "./home-section.module.css";
 
 export function FeaturedWork() {
   const featuredWork = homeContent.featuredWork.slugs.flatMap((slug) => {
@@ -15,15 +14,15 @@ export function FeaturedWork() {
       aria-labelledby="home-work-title"
     >
       <div className="container grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,min(40%,26rem))_minmax(0,1fr)] lg:gap-24">
-        <header className={homeSectionStyles.homeSectionIntro}>
-          <p className={`type-metadata ${homeSectionStyles.homeSectionLabel}`}>01 / Selected work</p>
+        <header>
+          <p className="type-metadata mb-3 text-[var(--accent)]">01 / Selected work</p>
           <h2 className="type-section-title" id="home-work-title">
             {homeContent.featuredWork.title}
           </h2>
-          <p className={`type-body ${homeSectionStyles.homeSectionDescription}`}>
+          <p className="type-body mt-3 max-w-[var(--summary-max-width)] text-[var(--muted)]">
             {homeContent.featuredWork.introduction}
           </p>
-          <Link className="action-link" href="/work">
+          <Link className="action-link mt-4" href="/work">
             {homeContent.featuredWork.linkLabel} <span aria-hidden="true">→</span>
           </Link>
         </header>

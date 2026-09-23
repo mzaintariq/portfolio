@@ -1,6 +1,5 @@
 import type { WorkItem } from "@/content/work";
 import innerStyles from "@/components/layout/inner-page.module.css";
-import styles from "./work-entry.module.css";
 
 type WorkEntryProps = {
   item: WorkItem;
@@ -9,16 +8,20 @@ type WorkEntryProps = {
 
 export function WorkEntry({ item, index }: WorkEntryProps) {
   return (
-    <article className={`container ${styles.workStory}`} aria-labelledby={`work-${item.slug}`}>
-      <div className={styles.workStoryContext}>
-        <p className={`type-metadata ${innerStyles.innerLabel}`}>
+    <article
+      className="container grid grid-cols-1 gap-8 py-[var(--inner-section-space)] lg:grid-cols-[minmax(0,min(30%,22rem))_minmax(0,1fr)] lg:gap-20"
+      aria-labelledby={`work-${item.slug}`}
+      data-work-story
+    >
+      <div className="min-w-0">
+        <p className="type-metadata text-[var(--accent)]">
           {String(index + 1).padStart(2, "0")} / {item.category}
         </p>
         {(item.company || item.client) && (
-          <p className={styles.workStoryCompany}>
+          <p className="mt-5 mb-2 text-[length:var(--text-navigation)] font-medium">
             {item.company}
             {item.client && (
-              <span>
+              <span className="text-[var(--muted)]">
                 {item.company ? " · Client: " : "Client: "}
                 {item.client}
               </span>
@@ -29,11 +32,16 @@ export function WorkEntry({ item, index }: WorkEntryProps) {
         <p className="type-metadata">{item.timeframe}</p>
       </div>
 
-      <div className={styles.workStoryContent}>
-        <h2 id={`work-${item.slug}`} className={`type-section-title ${styles.workStoryTitle}`}>
+      <div className="min-w-0">
+        <h2
+          id={`work-${item.slug}`}
+          className="type-section-title max-w-[24ch] scroll-mt-8 text-pretty"
+        >
           {item.title}
         </h2>
-        <p className={styles.workStorySummary}>{item.summary}</p>
+        <p className="mt-6 max-w-[48ch] text-[length:clamp(1.125rem,2vw,1.5rem)] leading-[var(--line-height-body)] text-[var(--muted)]">
+          {item.summary}
+        </p>
 
         {item.highlights.length > 0 && (
           <div className={innerStyles.innerHighlights}>
@@ -52,7 +60,7 @@ export function WorkEntry({ item, index }: WorkEntryProps) {
         )}
 
         {item.publicLinks && item.publicLinks.length > 0 && (
-          <div className={`${innerStyles.innerActions} ${styles.workStoryLinks}`}>
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
             {item.publicLinks.map((link) => (
               <a className="action-link" href={link.url} key={link.url}>
                 {link.label}

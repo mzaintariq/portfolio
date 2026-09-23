@@ -1,9 +1,0 @@
-.experienceList {
-  list-style: none;
-  padding: 0;
-}
-
-.experienceList {
-  display: grid;
-  gap: var(--space-12);
-}

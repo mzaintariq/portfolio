@@ -1,6 +1,5 @@
 import type { Experience } from "@/content/experience";
 import innerStyles from "@/components/layout/inner-page.module.css";
-import styles from "./experience-entry.module.css";
 
 type ExperienceEntryProps = {
   experience: Experience;
@@ -8,16 +7,18 @@ type ExperienceEntryProps = {
 
 export function ExperienceEntry({ experience }: ExperienceEntryProps) {
   return (
-    <li className={styles.experienceRecord}>
-      <p className={`type-metadata ${innerStyles.innerLabel}`}>
+    <li className="grid grid-cols-1 gap-6 bg-[var(--surface)] p-[clamp(var(--space-5),4vw,var(--space-12))] lg:grid-cols-[minmax(0,min(27.5%,20rem))_minmax(0,1fr)] lg:gap-12">
+      <p className="type-metadata text-[var(--accent)]">
         {experience.dates.start} – {experience.dates.end ?? "Present"}
       </p>
-      <div className={styles.experienceContent}>
-        <p className={styles.experienceCompany}>
+      <div className="min-w-0">
+        <p className="mb-3 text-[length:var(--text-navigation)] text-[var(--muted)]">
           {experience.company} <span aria-hidden="true">·</span> {experience.location}
         </p>
         <h2 className="type-work-title">{experience.role}</h2>
-        <p className={`type-body ${styles.experienceSummary}`}>{experience.summary}</p>
+        <p className="type-body mt-5 max-w-[var(--reading-max-width)] text-[var(--muted)]">
+          {experience.summary}
+        </p>
 
         {experience.highlights.length > 0 && (
           <div className={innerStyles.innerHighlights}>
