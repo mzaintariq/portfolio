@@ -1,5 +1,5 @@
 .aboutPage {
-  padding-bottom: 0;
+  padding-bottom: 0 !important;
 }
 
 .aboutPageHeader {
@@ -16,9 +16,9 @@
   padding-block: var(--inner-section-space);
 }
 
-.creativeBackground {
+/* .creativeBackground {
   background: var(--surface);
-}
+} */
 
 @media (min-width: 64rem) {
   .aboutPage .aboutPageHeader {

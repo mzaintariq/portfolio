@@ -9,7 +9,7 @@ export function AboutSection({ section }: AboutSectionProps) {
   return (
     <section
       aria-labelledby={`about-${section.id}`}
-      className={`${styles.aboutPageSection}${section.id === "how-i-work" ? ` ${styles.aboutPrinciples}` : ""}`}
+      className={`${styles.aboutPageSection}${section.id === "how-i-work" ? ` ${styles.aboutPrinciples}` : ""}${section.id === "outside-of-work" ? ` ${styles.aboutOutside}` : ""}`}
       id={section.id}
     >
       <div className={`container ${styles.aboutSectionLayout}`}>

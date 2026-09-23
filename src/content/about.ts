@@ -36,15 +36,27 @@ export const aboutContent: AboutContent = {
       entries: [
         {
           heading: "Product thinking",
-          text: "I try to understand the whole workflow before deciding what an individual screen should do.",
+          text: "Before touching a screen, I map out the whole workflow it belongs to — that's usually where the real complexity is hiding.",
         },
         {
           heading: "Frontend architecture",
-          text: "I use reusable patterns and clear boundaries so a product remains practical to change.",
+          text: "Reusable patterns and clear boundaries keep a product practical to change months later, not just easy to ship today.",
         },
         {
           heading: "User experience",
-          text: "I pay attention to where capable tools create friction and make the next action easier to understand.",
+          text: "The friction is usually in the tool, not the user — I look for where a capable interface still makes people think twice before the next click.",
+        },
+      ],
+    },
+    {
+      id: "leadership",
+      title: "Leadership",
+      entries: [
+        {
+          text: "I mentor and onboard junior engineers, review code across frontend and backend changes, and interview frontend candidates, including contributing to how technical assessments are designed.",
+        },
+        {
+          text: "I've received positive client feedback throughout the engagement, including a client-awarded bonus for delivery quality.",
         },
       ],
     },

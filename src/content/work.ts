@@ -22,15 +22,15 @@ export type WorkItem = {
 // Add only work details and assets approved for public sharing.
 export const workItems: WorkItem[] = [
   {
-    title: "Commerce Manager Product Editor",
-    slug: "commerce-manager-product-editor",
+    title: "Commerce Manager",
+    slug: "commerce-manager",
     company: "Arbisoft",
     client: "Elastic Path",
     summary:
-      "Redesigned an enterprise product management experience into a scalable React workflow for complex merchant operations.",
+      "Elastic Path's enterprise admin console for managing catalogs, products, orders, and subscriptions — a large-scale React/TypeScript SPA used by merchants, developers, and internal teams.",
     category: "Professional Work",
-    role: "Senior Frontend Engineer",
-    timeframe: "2024 - Present",
+    role: "Senior Software Engineer",
+    timeframe: "2022 - Present",
     technologies: [
       "React",
       "TypeScript",
@@ -39,22 +39,22 @@ export const workItems: WorkItem[] = [
       "TanStack Table",
     ],
     highlights: [
-      "Built reusable frontend patterns for complex product configuration workflows.",
-      "Improved consistency across editing experiences involving multiple product resources.",
-      "Focused on maintainable architecture, validation, and intuitive enterprise workflows.",
+      "Led the redesign of the Product Editor (~120 files, my largest single area of ownership), rebuilding it into a split-view, tabbed workflow with a form provider that coordinates a single Save across six or more backend resources.",
+      "Rebuilt the Bundle Editor and Catalog Rules flows, including a rule simulator for validating targeting and scheduling before publish.",
+      "Standardized 10+ legacy data tables onto a single reusable pattern, adopted platform-wide across the console.",
     ],
   },
 
   {
-    title: "Plasmic Commerce Integration",
-    slug: "plasmic-commerce-integration",
+    title: "Plasmic Storefront — Checkout & Payments",
+    slug: "plasmic-storefront-checkout-payments",
     company: "Arbisoft",
     client: "Elastic Path",
     summary:
-      "Built frontend commerce experiences connecting visual content creation with enterprise storefront and checkout workflows.",
+      "Owned the checkout and payments vertical on Elastic Path's fork of Plasmic, a visual storefront builder — built on top of an existing session and auth architecture.",
     category: "Professional Work",
-    role: "Senior Frontend Engineer",
-    timeframe: "2025 - Present",
+    role: "Senior Software Engineer",
+    timeframe: "Aug – Sep 2026",
     technologies: [
       "React",
       "Next.js",
@@ -63,9 +63,9 @@ export const workItems: WorkItem[] = [
       "Commerce APIs",
     ],
     highlights: [
-      "Designed scalable frontend patterns for commerce checkout flows.",
-      "Improved reliability of payment and order flows through robust frontend state management.",
-      "Collaborated across product, design, and engineering teams to deliver production features.",
+      "Redesigned the payment-adapter model so each gateway declares its own payment sequence, removing hardcoded Stripe assumptions — adopted as the package's contract within a week.",
+      "Independently found and fixed two checkout-integrity bugs at the payment boundary: one that let physical orders skip shipping, and one that could overcharge from stale shipping data.",
+      "Implemented Stripe 3D Secure end-to-end, including an error taxonomy that distinguishes genuine bank challenges from upstream API failures.",
     ],
   },
 
@@ -75,9 +75,9 @@ export const workItems: WorkItem[] = [
     company: "Arbisoft",
     client: "Elastic Path",
     summary:
-      "Developed modern Next.js commerce storefront experiences with search, localization, and reusable frontend integrations.",
+      "Built and maintain the flagship reference storefront for Elastic Path's open-source headless-commerce starter kit.",
     category: "Professional Work",
-    role: "Senior Frontend Engineer",
+    role: "Senior Software Engineer",
     timeframe: "2022 - Present",
     technologies: [
       "Next.js",
@@ -87,9 +87,9 @@ export const workItems: WorkItem[] = [
       "REST APIs",
     ],
     highlights: [
-      "Built customer-facing commerce experiences using modern React and Next.js patterns.",
-      "Implemented search, localization, and reusable storefront capabilities.",
-      "Contributed to an open-source composable commerce reference storefront.",
+      "Built the storefront's locale-first architecture — routing, currency formatting, and locale-aware search — from the ground up.",
+      "Integrated Algolia search via a custom adapter with URL-synced filters, and wrote a 325-line test suite covering cart and checkout pricing logic.",
+      "Shipped as part of a public repository used by external developers evaluating the platform.",
     ],
   },
 
@@ -99,10 +99,10 @@ export const workItems: WorkItem[] = [
     company: "Arbisoft",
     client: "Unstack",
     summary:
-      "Built frontend tooling for visual commerce editing experiences, enabling flexible content customization and responsive design workflows.",
+      "Built and maintained the visual page-editor and admin experience for Elastic Path Studio (formerly Unstack), from pre-acquisition product through long-term maintenance.",
     category: "Professional Work",
-    role: "Senior Frontend Engineer",
-    timeframe: "2021 - 2024",
+    role: "Senior Software Engineer",
+    timeframe: "2021 - 2026",
     technologies: [
       "React",
       "TypeScript",
@@ -111,9 +111,9 @@ export const workItems: WorkItem[] = [
       "Responsive UI",
     ],
     highlights: [
-      "Developed reusable editor components and configurable UI controls.",
-      "Implemented responsive design capabilities including device-specific styling and visibility behavior.",
-      "Modernized frontend code while improving maintainability across editor experiences.",
+      "Migrated high-churn editor modules from JavaScript to TypeScript using a strangler-fig approach, improving type safety without pausing feature delivery.",
+      "Standardized 10+ legacy data tables onto a single reusable pattern, adopted platform-wide across two codebases.",
+      "Sustained the product through an extended maintenance phase, triaging production defects across editor, commerce, and integrations with a shrinking team.",
     ],
   },
 ];

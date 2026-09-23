@@ -16,9 +16,9 @@ export const profile: Profile = {
   fullName: "Muhammad Zain Tariq",
   displayName: "Zain Tariq",
   headline:
-    "Senior frontend engineer building scalable interfaces for complex enterprise systems",
+    "Senior software engineer building React and TypeScript products for enterprise commerce platforms",
   introduction:
-    "I build React, TypeScript, and Next.js applications across enterprise commerce platforms, admin systems, CMS/editor experiences, and developer tools. I pair frontend architecture with product thinking to make sophisticated systems clear to use and practical to evolve.",
+    "I build React, TypeScript, and Next.js products for Elastic Path's commerce platform — a system processing tens of millions of API requests weekly for a portfolio of enterprise clients. My work spans an enterprise admin console, a payments and checkout vertical, and an open-source storefront used by external developers.",
   location: "Pearland, Texas",
   workAuthorization: "U.S. Citizen · Authorized to work in the U.S. without sponsorship",
   email: "mzaintariq@gmail.com",
