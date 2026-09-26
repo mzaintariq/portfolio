@@ -28,7 +28,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
             alt={project.image.alt}
             fill
             sizes="(min-width: 1488px) 1440px, calc(100vw - 48px)"
-            className="object-contain"
+            className="absolute inset-0 h-full w-full object-cover object-top"
             loading="eager"
           />
         </div>

@@ -15,7 +15,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     >
       {project.image && (
         <Link
-          className="relative mb-6 block aspect-[16/10] w-full shrink-0 bg-[var(--surface)]"
+          className="relative mb-6 block aspect-[16/10] w-full shrink-0 overflow-hidden rounded-sm bg-[var(--surface)] transition-transform duration-500 ease-out hover:scale-101"
           href={`/projects/${project.slug}`}
           aria-label={`Explore ${project.title}`}
         >
@@ -24,7 +24,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             alt={project.image.alt}
             fill
             sizes="(min-width: 1488px) 688px, (min-width: 768px) calc((100vw - 112px) / 2), calc(100vw - 48px)"
-            className="object-cover"
+            className="absolute inset-0 h-full w-full object-cover object-top"
           />
         </Link>
       )}
@@ -45,7 +45,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             {project.technologies.join(" · ")}
           </p>
         )}
-        <div className="mt-auto pt-8">
+        {/* <div className="mt-auto pt-8">
           <Link className="action-link" href={`/projects/${project.slug}`}>
             Explore project
             <span className="sr-only">: {project.title}</span>
@@ -72,6 +72,33 @@ export function ProjectCard({ project }: ProjectCardProps) {
               })}
             </div>
           )}
+        </div> */}
+        <div
+          className={`mt-auto flex flex-wrap gap-x-4 gap-y-0 pt-2 text-[length:var(--text-navigation)] ${styles.homeProjectActions}`}
+        >
+          <Link className="action-link" href={`/projects/${project.slug}`}>
+            Explore project
+            <span className="sr-only">: {project.title}</span>
+            <span aria-hidden="true">→</span>
+          </Link>
+          {project.links.length > 0 &&
+            project.links.map((link) => {
+              const isExternal = /^https?:\/\//.test(link.url);
+
+              return (
+                <a
+                  className="action-link text-[var(--muted)] hover:text-[var(--accent)]"
+                  href={link.url}
+                  key={`${link.label}-${link.url}`}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                >
+                  {link.label}
+                  <span aria-hidden="true">{isExternal ? "↗" : "→"}</span>
+                  {isExternal && <span className="sr-only">(opens in a new tab)</span>}
+                </a>
+              );
+            })}
         </div>
       </div>
     </article>

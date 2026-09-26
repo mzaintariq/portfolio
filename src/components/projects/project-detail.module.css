@@ -4,6 +4,10 @@
   width: 100%;
   aspect-ratio: 16 / 10;
   background: var(--surface);
+  overflow: hidden;
+  border-radius: var(--control-radius);
+  transition: transform 500ms ease-out;
+  flex-shrink: 0;
 }
 
 .projectDetailHeader {

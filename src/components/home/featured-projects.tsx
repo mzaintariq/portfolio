@@ -13,17 +13,15 @@ export function FeaturedProjects() {
       aria-labelledby="home-projects-title"
     >
       <div className="media-container">
-        <header className="grid grid-cols-1 items-end gap-6 md:grid-cols-[minmax(0,1fr)_auto] md:gap-10">
-          <div>
-            <p className="type-metadata mb-3 text-[var(--accent)]">02 / Projects</p>
-            <h2 className="type-section-title" id="home-projects-title">
-              {homeContent.featuredProjects.title}
-            </h2>
-            <p className="type-body mt-3 max-w-[var(--summary-max-width)] text-[var(--muted)]">
-              {homeContent.featuredProjects.introduction}
-            </p>
-          </div>
-          <Link className="action-link" href="/projects">
+        <header>
+          <p className="type-metadata mb-3 text-[var(--accent)]">02 / Projects</p>
+          <h2 className="type-section-title" id="home-projects-title">
+            {homeContent.featuredProjects.title}
+          </h2>
+          <p className="type-body mt-3 max-w-[var(--summary-max-width)] text-[var(--muted)]">
+            {homeContent.featuredProjects.introduction}
+          </p>
+          <Link className="action-link mt-4" href="/projects">
             {homeContent.featuredProjects.linkLabel} <span aria-hidden="true">→</span>
           </Link>
         </header>
@@ -37,7 +35,7 @@ export function FeaturedProjects() {
               >
                 {project.image && (
                   <Link
-                    className="relative mb-6 block aspect-[16/10] w-full"
+                    className="relative mb-6 block aspect-[16/10] w-full shrink-0 rounded-sm transition-transform duration-500 ease-out hover:scale-101"
                     href={`/projects/${project.slug}`}
                     aria-label={`Explore ${project.title}`}
                   >
@@ -46,7 +44,7 @@ export function FeaturedProjects() {
                       alt={project.image.alt}
                       fill
                       sizes="(min-width: 1488px) 688px, (min-width: 768px) calc((100vw - 112px) / 2), calc(100vw - 48px)"
-                      className="object-cover"
+                      className="absolute inset-0 h-full w-full object-cover object-top"
                     />
                   </Link>
                 )}
