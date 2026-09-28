@@ -35,7 +35,7 @@ export const creativeItems: CreativeItem[] = [
     category: "UX/UI",
     description:
       "A UX/UI concept focused on designing a supportive digital experience around dementia care.",
-    image: null,
+    image: {src: "/images/creative/dementia-care.png", alt: "DementiaCare+ UX/UI Concept"},
     links: [
       {
         label: "View on Behance",
@@ -51,7 +51,7 @@ export const creativeItems: CreativeItem[] = [
     category: "UX/UI",
     description:
       "An accessible eye-testing web application concept exploring assistive interaction and inclusive interface design.",
-    image: null,
+    image: {src: "/images/creative/eye-assisted.png", alt: "Eye.Assisted UX/UI Concept"},
     links: [
       {
         label: "View on Behance",
@@ -67,7 +67,7 @@ export const creativeItems: CreativeItem[] = [
     category: "UX/UI",
     description:
       "A UX/UI concept for simplifying campus food ordering at LUMS through a clearer digital ordering experience.",
-    image: null,
+    image: {src: "/images/creative/lums-eat.png", alt: "LUMS Eat UX/UI Concept"},
     links: [
       {
         label: "View on Behance",
@@ -83,27 +83,11 @@ export const creativeItems: CreativeItem[] = [
     category: "Visual Design",
     description:
       "Branding and visual-design work created for FiLUMS 2018 across event and promotional materials.",
-    image: null,
+    image: {src: "/images/creative/filums.png", alt: "FiLUMS 2018 Visual Design"},
     links: [
       {
         label: "View on Behance",
         url: "https://www.behance.net/gallery/90373245/FiLUMS-2018",
-        type: "behance",
-      },
-    ],
-    featured: true,
-  },
-  {
-    title: "LUMS Olympiad 2019",
-    slug: "lums-olympiad-2019",
-    category: "Visual Design",
-    description:
-      "Event branding and visual design across social media, print, delegate materials, proposals, merchandise, awards, and event collateral.",
-    image: null,
-    links: [
-      {
-        label: "View on Behance",
-        url: "https://www.behance.net/gallery/84329611/LUMS-Olympiad-2019-Event-Branding-Visual-Design",
         type: "behance",
       },
     ],
@@ -115,11 +99,27 @@ export const creativeItems: CreativeItem[] = [
     category: "Visual Design",
     description:
       "A COVID-19 awareness poster that won a university design competition.",
-    image: null,
+    image: {src: "/images/creative/danger-hazard.png", alt: "Danger/Hazard Visual Design"},
     links: [
       {
         label: "View on Behance",
         url: "https://www.behance.net/gallery/107577451/DangerHazard-COVID-19-Awareness-Poster-Design",
+        type: "behance",
+      },
+    ],
+    featured: true,
+  },
+  {
+    title: "LUMS Olympiad 2019",
+    slug: "lums-olympiad-2019",
+    category: "Visual Design",
+    description:
+      "Event branding and visual design across social media, print, delegate materials, proposals, merchandise, awards, and event collateral.",
+    image: {src: "/images/creative/olympiad.png", alt: "LUMS Olympiad 2019 Visual Design"},
+    links: [
+      {
+        label: "View on Behance",
+        url: "https://www.behance.net/gallery/84329611/LUMS-Olympiad-2019-Event-Branding-Visual-Design",
         type: "behance",
       },
     ],
