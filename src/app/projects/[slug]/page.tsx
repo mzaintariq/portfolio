@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProjectDetail } from "@/components/projects/project-detail";
 import { projects } from "@/content/projects";
+import { getProjectDetails } from "@/content/project-details";
 
 function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
@@ -37,5 +38,5 @@ export default async function ProjectPage({
     notFound();
   }
 
-  return <ProjectDetail project={project} />;
+  return <ProjectDetail project={project} details={getProjectDetails(slug)} />;
 }

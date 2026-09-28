@@ -13,6 +13,8 @@ export type Project = {
   image: {
     src: string;
     alt: string;
+    width: number;
+    height: number;
   } | null;
   links: ProjectLink[];
   featured: boolean;
@@ -35,7 +37,7 @@ export const projects: Project[] = [
       "PostgreSQL",
       "TMDB API",
     ],
-    image: null,
+    image: { src: '/screenshots/tracktv-explore.png', alt: 'TrackTV Screenshot', width: 2104, height: 1494 },
     links: [
       {
         label: "Live Demo",
@@ -66,7 +68,7 @@ export const projects: Project[] = [
       "PostgreSQL",
       "Prisma",
     ],
-    image: null,
+    image: { src: '/screenshots/zaika-homepage.png', alt: 'Digital Cookbook Screenshot', width: 2104, height: 1494 },
     links: [
       {
         label: "Live Demo",
