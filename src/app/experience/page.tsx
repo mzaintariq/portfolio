@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ExperienceEntry } from "@/components/experience/experience-entry";
 import { experiences } from "@/content/experience";
+import { education, priorExperience } from "@/content/profile-data";
 
 export const metadata: Metadata = { title: "Experience" };
 
@@ -31,6 +32,25 @@ export default function ExperiencePage() {
           Experience will be added here.
         </p>
       )}
+
+      <div className="container mt-12 border-t border-[var(--border)] pt-8">
+        <div className="space-y-8 text-sm leading-relaxed text-[var(--muted)]">
+          <section aria-labelledby="prior-experience-title">
+            <h2 className="text-base font-semibold" id="prior-experience-title">
+              {priorExperience.title}
+            </h2>
+            <p className="mt-2">{priorExperience.summary}</p>
+          </section>
+
+          <section aria-labelledby="education-title">
+            <h2 className="text-base font-semibold" id="education-title">
+              Education
+            </h2>
+            <p className="mt-2">{education.institution} — {education.degree}</p>
+            <p className="mt-1">{education.dates.start} – {education.dates.end}</p>
+          </section>
+        </div>
+      </div>
     </main>
   );
 }
